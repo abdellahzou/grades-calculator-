@@ -1,0 +1,177 @@
+<!-- TelecomeM1S1.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Moyenne M1S1</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            padding: 20px;
+            margin: 0;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .input-box {
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+    <style>
+        /* Responsive Styles */
+        @media screen and (max-width: 600px) {
+            form {
+                max-width: 100%;
+            }
+
+            .input-box {
+                margin-bottom: 10px;
+            }
+
+            input[type="submit"] {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+        <form method="post" action="#">
+            {% csrf_token %}
+            <div id="input-container"></div>
+            <input type="submit" value="Submit">
+        </form>
+
+        <script>
+    const fieldData = [
+        { label: 'Anglais:', name: 'anglais' },
+        { label: 'Examen Normes et Protocoles:', name: 'exam-NP' },
+        { label: 'Examen System Linux:', name: 'exam-linux' },
+        { label: 'Exam Propagation et Antennes:', name: 'exam-PA' },
+        { label: 'TD Propagation et Antennes:', name: 'TD-PA' },
+        { label: 'Examen Python:', name: 'exam-python' },
+        { label: 'TP Python:', name: 'TP-python' },
+        { label: 'Examen Communications Numeriques Avancees:', name: 'exam-CNA' },
+        { label: 'TP Communications Numeriques Avancees:', name: 'TP-CNA' },
+        { label: 'TD Communications Numeriques Avancees:', name: 'TD-CNA' },
+        { label: 'Examen Traitement Avance du Signal:', name: 'exam-TAS' },
+        { label: 'TD Traitement Avance du Signal:', name: 'TD-TAS' },
+        { label: 'TP Traitement Avance du Signal:', name: 'TP-TAS' },
+        { label: 'Examen Routage IP:', name: 'exam-routage' },
+        { label: 'TD Routage IP:', name: 'TD-routage' },
+        { label: 'TP Routage IP:', name: 'TP-routage' },
+        
+        
+        
+        
+        // Add more field objects as needed
+    ];
+
+    const inputContainer = document.getElementById('input-container');
+
+    fieldData.forEach(field => {
+        const inputBox = document.createElement('div');
+        inputBox.className = 'input-box';
+
+        const label = document.createElement('label');
+        label.setAttribute('for', field.name);
+        label.textContent = field.label;
+
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.id = field.name;
+        input.name = field.name;
+
+        inputBox.appendChild(label);
+        inputBox.appendChild(input);
+        inputContainer.appendChild(inputBox);
+    });
+
+    const form = document.querySelector('form');
+    form.addEventListener('submit', (event) => {
+        const inputs = Array.from(document.querySelectorAll('.input-box input'));
+        const areAllFieldsValid = inputs.every(input => isValidFloat(input.value));
+
+        if (!areAllFieldsValid) {
+            event.preventDefault();
+            alert('3amer kaml les notes, balak rak nsit wla ghlt f kach w7da!');
+        }
+    });
+
+    function isValidFloat(value) {
+        // Check if the value is a valid floating-point number
+        return /^-?\d+(\.\d+)?$/.test(value);
+    }
+</script>
+
+
+    <script>
+        const inputFields = Array.from(document.querySelectorAll('.input-box input'));
+        const submitButton = document.querySelector('input[type="submit"]');
+
+        function navigateInputs(event) {
+            const currentIndex = inputFields.findIndex(input => document.activeElement === input);
+            const lastIndex = inputFields.length - 1;
+
+            if (event.key === 'Enter') {
+                if (currentIndex === lastIndex) {
+                    submitButton.click();
+                    event.preventDefault();
+                } else {
+                    const nextIndex = (currentIndex + 1) % inputFields.length;
+                    inputFields[nextIndex].focus();
+                    event.preventDefault();
+                }
+            } else if (event.key === 'ArrowUp') {
+                const prevIndex = (currentIndex - 1 + inputFields.length) % inputFields.length;
+                inputFields[prevIndex].focus();
+                event.preventDefault();
+            } else if (event.key === 'ArrowDown') {
+                const nextIndex = (currentIndex + 1) % inputFields.length;
+                inputFields[nextIndex].focus();
+                event.preventDefault();
+            }
+        }
+
+        inputFields.forEach(input => {
+            input.addEventListener('keydown', navigateInputs);
+        });
+    </script>
+</body>
+</html>
+
