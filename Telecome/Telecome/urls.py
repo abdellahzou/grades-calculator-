@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from calculator import views
-
+from django.views.generic import TemplateView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('telecome/', views.Telecome, name='Telecome'),
@@ -38,5 +38,6 @@ urlpatterns = [
     path('mi/', views.mi, name='mi'),
     path('mis1/', views.mis1, name='mis1'),
     path('mis2/', views.mis2, name='mis2'),
+    path('google2f06530ea95f0b86.html', TemplateView.as_view(template_name='google2f06530ea95f0b86.html')),
 
 ]
