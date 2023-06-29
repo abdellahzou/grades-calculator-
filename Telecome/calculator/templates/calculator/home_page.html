@@ -47,10 +47,7 @@
                 margin: 8px;
             }
      }
-            .hide-button {
-                display: none;
-            }
-   
+            
     </style>
     
 </head>
@@ -60,7 +57,9 @@
         
         <a href="{% url 'bac_page' %}">BAC</a>
         <a href="{% url 'st' %}">ST</a>
-       <a href="{% url 'mi' %}" class="hide-button">MI</a>
+        {% comment %}
+        <a href="{% url 'mi' %}">MI</a>
+        {% endcomment %}
     </div>
 </body>
 </html>
