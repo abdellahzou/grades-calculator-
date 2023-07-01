@@ -13,61 +13,61 @@
             padding: 0;
         }
         .container {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            max-width: 100%; /* Added max-width to ensure responsiveness */
-            padding: 20px; /* Added padding for spacing */
-        }
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: auto; /* Changed height to auto for responsiveness */
+        max-width: 100%;
+        padding: 20px;
+    }
+    .logo {
+        font-size: 40px;
+        color: #333;
+        margin-bottom: 20px;
+    }
+    .button-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 40px;
+        width: 100%;
+    }
+    .button-container a {
+        display: inline-block;
+        padding: 12px 24px;
+        margin: 10px;
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: bold;
+        color: #fff;
+        background-color: #337ab7;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    .button-container a:hover {
+        background-color: #23527c;
+    }
+
+    /* Responsive Styles */
+    @media screen and (max-width: 480px) {
         .logo {
-            font-size: 40px;
-            color: #333;
-            margin-bottom: 20px;
+            font-size: 30px;
         }
         .button-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-top: 40px;
-            width: 100%; /* Added width to make the buttons occupy the entire container */
+            margin-top: 20px;
         }
         .button-container a {
-            display: inline-block;
-            padding: 12px 24px;
-            margin: 10px;
-            text-decoration: none;
-            font-size: 18px;
-            font-weight: bold;
-            color: #fff;
-            background-color: #337ab7;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-            width: 100%; /* Added width to make the buttons occupy the entire container */
-            box-sizing: border-box; /* Added box-sizing for accurate sizing */
+            font-size: 16px;
+            padding: 10px 20px;
+            margin: 8px;
         }
-        .button-container a:hover {
-            background-color: #23527c;
-        }
-
-        /* Responsive Styles */
-        @media screen and (max-width: 480px) {
-            .logo {
-                font-size: 30px;
-            }
-            .button-container {
-                margin-top: 20px;
-            }
-            .button-container a {
-                font-size: 16px;
-                padding: 10px 20px;
-                margin: 8px;
-            }
-        }
-    </style>
+    }
+</style>
 </head>
-<body>
+<body> 
     <div class="container">
         <h1 class="logo">مرحبًا بك في موقع حساب معدل الباكالوريا</h1>
         <div class="button-container">
