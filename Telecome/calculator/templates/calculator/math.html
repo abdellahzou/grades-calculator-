@@ -100,43 +100,45 @@
             
             // Add more field objects as needed
         ];
-
         const inputContainer = document.getElementById('input-container');
 
-        fieldData.forEach(field => {
-            const inputBox = document.createElement('div');
-            inputBox.className = 'input-box';
+fieldData.forEach(field => {
+    const inputBox = document.createElement('div');
+    inputBox.className = 'input-box';
 
-            const label = document.createElement('label');
-            label.setAttribute('for', field.name);
-            label.textContent = field.label;
+    const label = document.createElement('label');
+    label.setAttribute('for', field.name);
+    label.textContent = field.label;
 
-            const input = document.createElement('input');
-            input.type = 'text';
-            input.id = field.name;
-            input.name = field.name;
+    const input = document.createElement('input');
+    input.type = 'text';
+    input.id = field.name;
+    input.name = field.name;
 
-            inputBox.appendChild(label);
-            inputBox.appendChild(input);
-            inputContainer.appendChild(inputBox);
-        });
-        
-        const form = document.querySelector('form');
-        form.addEventListener('submit', (event) => {
-            const inputs = Array.from(document.querySelectorAll('.input-box input'));
-            const areAllFieldsValid = inputs.every(input => isValidFloat(input.value));
+    inputBox.appendChild(label);
+    inputBox.appendChild(input);
+    inputContainer.appendChild(inputBox);
+});
 
-            if (!areAllFieldsValid) {
-                event.preventDefault();
-                alert('املأ جميع الحقول بأرقام صحيحة، تحقق من أنك لم تنس أو تخطأ في أي منها!');
-            }
-        });
+const form = document.querySelector('form');
+form.addEventListener('submit', (event) => {
+    const inputs = Array.from(document.querySelectorAll('.input-box input'));
+    const areAllFieldsValid = inputs.every(input => isValidNumberInRange(input.value));
 
-        function isValidFloat(value) {
-            // Check if the value is a valid floating-point number
-            return /^-?\d+(\.\d+)?$/.test(value);
-        }
-    </script>
+    const areAllFieldsFilled = inputs.every(input => input.value.trim() !== '');
+
+    if (!areAllFieldsValid || !areAllFieldsFilled) {
+        event.preventDefault();
+        alert('قم بإدخال جميع الدرجات، تحقق من عدم نسيان أو خطأ في أحد الحقول!');
+    }
+});
+
+function isValidNumberInRange(value) {
+    const number = Number(value);
+    return !isNaN(number) && number >= 0 && number <= 20;
+}
+
+</script>
 
 
     <script>

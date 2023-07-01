@@ -86,55 +86,60 @@
     </form>
     
     <script>
-        const fieldData = [
-            { label: 'العربية', name: 'Arabe' },
-            { label: 'الانجليزية', name: 'Anglais' },
-            { label: 'الفرنسية', name: 'Français' },
-            { label: 'الرياضيات', name: 'Math' },
-            { label: 'العلوم', name: 'Sciences' },
-            { label: 'الفيزياء', name: 'Physiques' },
-            { label: 'التاريخ الجغرافيا', name: 'Histoire Geo' },
-            { label: 'العلوم الاسلامية', name: 'Sciences Islamiques' },
-            { label: 'الفلسفة', name: 'Philo' },
-            { label: 'رياضة : إذا كنت معفى من الرياضة، ضع العلامة تساوي 0', name: 'Sport' },
-            
-            // أضف المزيد من الحق
+        
+    const fieldData = [
+        { label: 'العربية', name: 'Arabe' },
+        { label: 'الانجليزية', name: 'Anglais' },
+        { label: 'الفرنسية', name: 'Français' },
+        { label: 'الرياضيات', name: 'Math' },
+        { label: 'العلوم', name: 'Science' },  // Corrected subject name
+        { label: 'الفيزياء', name: 'Physiques' },
+        { label: 'التاريخ الجغرافيا', name: 'Histoire Geo' },
+        { label: 'العلوم الاسلامية', name: 'Sciences Islamiques' },
+        { label: 'الفلسفة', name: 'Philo' },
+        { label: 'رياضة : إذا كنت معفى من الرياضة، ضع العلامة تساوي 0', name: 'Sport' },
+        
+        // Add more subjects and their names here
     ]
     
-            const inputContainer = document.getElementById('input-container');
-    
-            fieldData.forEach(field => {
-                const inputBox = document.createElement('div');
-                inputBox.className = 'input-box';
-    
-                const label = document.createElement('label');
-                label.setAttribute('for', field.name);
-                label.textContent = field.label;
-    
-                const input = document.createElement('input');
-                input.type = 'text';
-                input.id = field.name;
-                input.name = field.name;
-    
-                inputBox.appendChild(label);
-                inputBox.appendChild(input);
-                inputContainer.appendChild(inputBox);
-            });
-            const form = document.querySelector('form');
-    form.addEventListener('submit', (event) => {
-        const inputs = Array.from(document.querySelectorAll('.input-box input'));
-        const areAllFieldsValid = inputs.every(input => isValidFloat(input.value));
+    const inputContainer = document.getElementById('input-container');
 
-        if (!areAllFieldsValid) {
-            event.preventDefault();
-            alert('3amer kaml les notes, balak rak nsit wla ghlt f kach w7da!');
-        }
-    });
+fieldData.forEach(field => {
+    const inputBox = document.createElement('div');
+    inputBox.className = 'input-box';
 
-    function isValidFloat(value) {
-        // Check if the value is a valid floating-point number
-        return /^-?\d+(\.\d+)?$/.test(value);
+    const label = document.createElement('label');
+    label.setAttribute('for', field.name);
+    label.textContent = field.label;
+
+    const input = document.createElement('input');
+    input.type = 'text';
+    input.id = field.name;
+    input.name = field.name;
+
+    inputBox.appendChild(label);
+    inputBox.appendChild(input);
+    inputContainer.appendChild(inputBox);
+});
+
+const form = document.querySelector('form');
+form.addEventListener('submit', (event) => {
+    const inputs = Array.from(document.querySelectorAll('.input-box input'));
+    const areAllFieldsValid = inputs.every(input => isValidNumberInRange(input.value));
+
+    const areAllFieldsFilled = inputs.every(input => input.value.trim() !== '');
+
+    if (!areAllFieldsValid || !areAllFieldsFilled) {
+        event.preventDefault();
+        alert('قم بإدخال جميع الدرجات، تحقق من عدم نسيان أو خطأ في أحد الحقول!');
     }
+});
+
+function isValidNumberInRange(value) {
+    const number = Number(value);
+    return !isNaN(number) && number >= 0 && number <= 20;
+}
+
 </script>
 
 
