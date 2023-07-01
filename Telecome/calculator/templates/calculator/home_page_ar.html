@@ -1,14 +1,16 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="ar">
 <head>
     <meta name="google-site-verification" content="EEjg_-VyAwGUbF4Qw8jxUiFjoGgyUVfOZnOMD5UWIkw" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Calculez votre moyenne de BAC en Algérie ou votre moyenne de ST. Obtenez des résultats précis et suivez votre progression.">
-    <title>Page d'accueil</title>
+    <meta name="description" content="احسب معدل الباكالوريا الجزائرية أو معدلك الجامعي في تخصص العلوم والتكنولوجيا. احصل على نتائج دقيقة وتابع تطورك.">
+    <title>الصفحة الرئيسية</title>
     <style>
+           @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
+
         body {
-            font-family: Arial, sans-serif;
+    font-family: 'Cairo', Arial, sans-serif;
             background-color: #f2f2f2;
             margin: 0;
             padding: 0;
@@ -102,33 +104,33 @@
 </head>
 <body>
     <div class="container">
-        <a href="/" style="position: absolute; top: 10px; right: 10px;">Arabe</a>
-        <h1 class="logo">Bienvenue</h1>
-        <h2 class="subtitle">Calculez votre moyenne de BAC en Algérie</h2>
-        <h2 class="subtitle">Ou calculez votre moyenne de ST</h2>
+        <a href="/fr" style="position: absolute; top: 10px; right: 10px;">Français</a>
+        <h1 class="logo">مرحبًا</h1>
+        <h2 class="subtitle">احسب معدل الباكالوريا الجزائرية</h2>
+        <h2 class="subtitle">أو احسب معدلك الجامعي في تخصص العلوم والتكنولوجيا</h2>
 
         <div class="button-container">
-            <a href="{% url 'bac_page' %}" title="Calculez votre moyenne de BAC">Moyenne de BAC</a>
-            <a href="{% url 'st' %}" title="Calculez votre moyenne de ST">Moyenne de ST</a>
+            <a href="{% url 'bac_page_ar' %}" title="احسب معدل الباكالوريا">حساب معدل الباكالوريا</a>
+            <a href="{% url 'st' %}" title="احسب معدلك الجامعي في تخصص العلوم والتكنولوجيا">حساب معدل العلوم والتكنولوجيا</a>
             
         </div>
 
         <div class="feature-container">
             <div class="feature-box">
                 <div class="feature-icon">⚙️</div>
-                <h3 class="feature-title">Calcul automatique</h3>
-                <p class="feature-description">Obtenez votre moyenne de BAC ou ST rapidement et précisément grâce à notre calculateur automatique.</p>
+                <h3 class="feature-title">حساب تلقائي</h3>
+                <p class="feature-description">احسب معدل الباكالوريا أو العلوم والتكنولوجيا بسرعة ودقة عالية باستخدام حاسبتنا التلقائية.</p>
             </div>
             <div class="feature-box">
                 <div class="feature-icon">📊</div>
-                <h3 class="feature-title">Suivi de progression</h3>
-                <p class="feature-description">Suivez votre progression et découvrez les matières où vous pouvez vous améliorer pour augmenter votre moyenne.</p>
+                <h3 class="feature-title">تتبع التقدم</h3>
+                <p class="feature-description">تابع تقدمك واكتشف المواد التي يمكنك تحسينها لزيادة معدلك العام.</p>
             </div>
             <div class="feature-box">
                 <div class="feature-icon">📨</div>
 
-                <h3 class="feature-title">Partagez le site</h3>
-                <p class="feature-description">Partagez le site avec vos amis afin qu'ils puissent calculer leur moyenne du baccalauréat et leur moyenne de sciences et technologie.</p>
+                <h3 class="feature-title">شارك الموقع</h3>
+                <p class="feature-description">شارك الموفع مع اصدقائك ليتمكنوا من حساب معدل الباكالوريا و معدل تخصص العلوم و التكنولوجيا الخاص بهم. </p>
             </div>
         </div>
     </div>

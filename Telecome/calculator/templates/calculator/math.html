@@ -1,12 +1,15 @@
-<!-- math.html -->
 <!DOCTYPE html>
-<html>
+<html lang="ar">
 <head>
-    <title> Math</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>الرياضيات</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="description" content="احسب درجاتك في الرياضيات وتابع تقدمك. املأ الحقول بالدرجات واحصل على النتيجة.">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
+
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Cairo', Arial, sans-serif;
             background-color: #f2f2f2;
             padding: 20px;
             margin: 0;
@@ -51,6 +54,11 @@
         input[type="submit"]:hover {
             background-color: #45a049;
         }
+
+        h1 {
+            text-align: center;
+            margin-top: 0;
+        }
     </style>
     <style>
         /* Responsive Styles */
@@ -70,64 +78,65 @@
     </style>
 </head>
 <body>
-    <body>
-        <form method="post" action="#">
-            {% csrf_token %}
-            <div id="input-container"></div>
-            <input type="submit" value="Submit">
-        </form>
-    
-        <script>
-            const fieldData = [
-                { label: 'Arabe', name: 'Arabe' },
-                { label: 'Anglais', name: 'Anglais' },
-                { label: 'Français', name: 'Français' },
-                { label: 'Math', name: 'Math' },
-                { label: 'Sciences', name: 'Sciences' },
-                { label: 'Physiques', name: 'Physiques' },
-                { label: 'Histoire Geo', name: 'Histoire Geo' },
-                { label: 'Sciences Islamiques', name: 'Sciences Islamiques' },
-                { label: 'Philo', name: 'Philo' },
-                { label: 'Sport : لو كنت معفى من الرياضة ضع العلامة تساوي 0', name: 'Sport' },
-                
-                // Add more field objects as needed
-            ];
-    
-            const inputContainer = document.getElementById('input-container');
-    
-            fieldData.forEach(field => {
-                const inputBox = document.createElement('div');
-                inputBox.className = 'input-box';
-    
-                const label = document.createElement('label');
-                label.setAttribute('for', field.name);
-                label.textContent = field.label;
-    
-                const input = document.createElement('input');
-                input.type = 'text';
-                input.id = field.name;
-                input.name = field.name;
-    
-                inputBox.appendChild(label);
-                inputBox.appendChild(input);
-                inputContainer.appendChild(inputBox);
-            });
-            const form = document.querySelector('form');
-    form.addEventListener('submit', (event) => {
-        const inputs = Array.from(document.querySelectorAll('.input-box input'));
-        const areAllFieldsValid = inputs.every(input => isValidFloat(input.value));
+    <h1>حساب معدل البكالوريا لشعبة الرياضيات</h1>
+    <form method="post" action="#">
+        {% csrf_token %}
+        <div id="input-container"></div>
+        <input type="submit" value="إرسال">
+    </form>
 
-        if (!areAllFieldsValid) {
-            event.preventDefault();
-            alert('3amer kaml les notes, balak rak nsit wla ghlt f kach w7da!');
+    <script>
+        const fieldData = [
+            { label: 'العربية', name: 'Arabe' },
+            { label: 'الإنجليزية', name: 'Anglais' },
+            { label: 'الفرنسية', name: 'Français' },
+            { label: 'الرياضيات', name: 'Math' },
+            { label: 'العلوم', name: 'Sciences' },
+            { label: 'الفيزياء', name: 'Physiques' },
+            { label: 'التاريخ الجعرافيا', name: 'Histoire Geo' },
+            { label: 'العلوم الإسلامية', name: 'Sciences Islamiques' },
+            { label: 'الفلسفة', name: 'Philo' },
+            { label: 'الرياضة : إذا كنت معفى من مادة الرياضة، ضع علامة تساوي 0', name: 'Sport' },
+            
+            // Add more field objects as needed
+        ];
+
+        const inputContainer = document.getElementById('input-container');
+
+        fieldData.forEach(field => {
+            const inputBox = document.createElement('div');
+            inputBox.className = 'input-box';
+
+            const label = document.createElement('label');
+            label.setAttribute('for', field.name);
+            label.textContent = field.label;
+
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.id = field.name;
+            input.name = field.name;
+
+            inputBox.appendChild(label);
+            inputBox.appendChild(input);
+            inputContainer.appendChild(inputBox);
+        });
+        
+        const form = document.querySelector('form');
+        form.addEventListener('submit', (event) => {
+            const inputs = Array.from(document.querySelectorAll('.input-box input'));
+            const areAllFieldsValid = inputs.every(input => isValidFloat(input.value));
+
+            if (!areAllFieldsValid) {
+                event.preventDefault();
+                alert('املأ جميع الحقول بأرقام صحيحة، تحقق من أنك لم تنس أو تخطأ في أي منها!');
+            }
+        });
+
+        function isValidFloat(value) {
+            // Check if the value is a valid floating-point number
+            return /^-?\d+(\.\d+)?$/.test(value);
         }
-    });
-
-    function isValidFloat(value) {
-        // Check if the value is a valid floating-point number
-        return /^-?\d+(\.\d+)?$/.test(value);
-    }
-</script>
+    </script>
 
 
     <script>
@@ -164,4 +173,3 @@
     </script>
 </body>
 </html>
-

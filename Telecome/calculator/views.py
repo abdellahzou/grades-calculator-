@@ -2,6 +2,8 @@
 from django.shortcuts import render
 def home_page(request):
     return render(request, 'calculator/home_page.html')
+def home_page_ar(request):
+    return render(request, 'calculator/home_page_ar.html')
 
 def mi(request):
     return render(request, 'calculator/mi.html')
@@ -210,6 +212,10 @@ def bac_page(request):
     # Logic for the bar page
     # You can perform any necessary operations or retrieve data for this page
     return render(request, 'calculator/bac_page.html')
+def bac_page_ar(request):
+    # Logic for the bar page
+    # You can perform any necessary operations or retrieve data for this page
+    return render(request, 'calculator/bac_page_ar.html')
 
 
 def calculate_average(request, subject_weights, template_name):
