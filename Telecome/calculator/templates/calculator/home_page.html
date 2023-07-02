@@ -7,12 +7,16 @@
     <meta name="description" content="Calculez votre moyenne de BAC en Algérie ou votre moyenne de ST. Obtenez des résultats précis et suivez votre progression.">
     <title>Page d'accueil</title>
     <style>
+        /* Add some basic styling */
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
+
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Cairo', Arial, sans-serif;
             background-color: #f2f2f2;
             margin: 0;
             padding: 0;
         }
+
         .container {
             display: flex;
             flex-direction: column;
@@ -20,22 +24,27 @@
             align-items: center;
             padding: 40px;
             text-align: center;
+            min-height: 100vh;
         }
+
         .logo {
             font-size: 40px;
             color: #333;
             margin-bottom: 20px;
         }
+
         .subtitle {
             font-size: 24px;
             margin-bottom: 40px;
         }
+
         .button-container {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
             margin-top: 20px;
         }
+
         .button-container a {
             display: inline-block;
             padding: 12px 24px;
@@ -48,15 +57,18 @@
             border-radius: 5px;
             transition: background-color 0.3s ease;
         }
+
         .button-container a:hover {
             background-color: #23527c;
         }
+
         .feature-container {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
             margin-top: 60px;
         }
+
         .feature-box {
             width: 300px;
             padding: 20px;
@@ -66,37 +78,41 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             text-align: center;
         }
+
         .feature-icon {
             font-size: 48px;
             color: #337ab7;
             margin-bottom: 20px;
         }
+
         .feature-title {
             font-size: 24px;
             margin-bottom: 10px;
         }
+
         .feature-description {
             font-size: 16px;
             color: #777;
         }
 
-        /* Responsive Styles */
-        @media screen and (max-width: 480px) {
-            .logo {
-                font-size: 30px;
-            }
-            .subtitle {
-                font-size: 18px;
-            }
-            .button-container a {
-                font-size: 16px;
-                padding: 10px 20px;
-                margin: 8px;
-            }
-            .feature-box {
-                width: 90%;
-                max-width: 300px;
-            }
+        /* Footer Styling */
+        .footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #f9f9f9;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            display: none;
+        }
+
+        .footer.visible {
+            display: block;
+        }
+
+        .heart-icon {
+            color: red;
         }
     </style>
 </head>
@@ -105,12 +121,11 @@
         <a href="/" style="position: absolute; top: 10px; right: 10px;">Arabe</a>
         <h1 class="logo">Bienvenue</h1>
         <h2 class="subtitle">Calculez votre moyenne de BAC en Algérie</h2>
-        <h2 class="subtitle">Ou calculez votre moyenne de ST</h2>
+        <h2 class="subtitle">Ou calculez votre moyenne de  spécialité universitaire</h2>
 
         <div class="button-container">
             <a href="{% url 'bac_page' %}" title="Calculez votre moyenne de BAC">Moyenne de BAC</a>
-            <a href="{% url 'st' %}" title="Calculez votre moyenne de ST">Moyenne de ST</a>
-            
+            <a href="{% url 'st' %}" title="Calculez votre moyenne de ST">Moyenne universitaire</a>
         </div>
 
         <div class="feature-container">
@@ -126,11 +141,35 @@
             </div>
             <div class="feature-box">
                 <div class="feature-icon">📨</div>
-
                 <h3 class="feature-title">Partagez le site</h3>
-                <p class="feature-description">Partagez le site avec vos amis afin qu'ils puissent calculer leur moyenne du baccalauréat et leur moyenne de sciences et technologie.</p>
+                <p class="feature-description">Partagez le site avec vos amis afin qu'ils puissent calculer leur moyenne du baccalauréat et leur moyenne de spécialité universitaire.</p>
             </div>
         </div>
+
+        <p class="footer">Made with <span class="heart-icon">&#10084;</span> by Abdellah Zougari &copy; <span id="year"></span></p>
     </div>
+
+    <script>
+        function showFooter() {
+            const footer = document.querySelector('.footer');
+            const distanceFromTop = document.documentElement.scrollTop + window.innerHeight;
+            const documentHeight = document.documentElement.offsetHeight;
+            const isScrolledToBottom = distanceFromTop >= documentHeight;
+            if (isScrolledToBottom) {
+                footer.classList.add('visible');
+            } else {
+                footer.classList.remove('visible');
+            }
+        }
+
+        function updateYear() {
+            const yearElement = document.getElementById('year');
+            const currentYear = new Date().getFullYear();
+            yearElement.textContent = currentYear;
+        }
+
+        document.addEventListener('scroll', showFooter);
+        updateYear();
+    </script>
 </body>
 </html>

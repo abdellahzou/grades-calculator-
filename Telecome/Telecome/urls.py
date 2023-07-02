@@ -41,5 +41,8 @@ urlpatterns = [
     path('mis1/', views.mis1, name='mis1'),
     path('mis2/', views.mis2, name='mis2'),
     path('google2f06530ea95f0b86.html', TemplateView.as_view(template_name='google2f06530ea95f0b86.html')),
+    path('droitl1/', views.droitl1, name='droitl1'),
+    path('droitl1s1/', views.droitl1s1, name='droitl1s1'),
+    path('droitl1s2/', views.droitl1s2, name='droitl1s2'),
 
 ]

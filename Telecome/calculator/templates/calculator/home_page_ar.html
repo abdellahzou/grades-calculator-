@@ -100,18 +100,37 @@
                 max-width: 300px;
             }
         }
+         /* Footer Styling */
+         .footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #f9f9f9;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            display: none;
+        }
+
+        .footer.visible {
+            display: block;
+        }
+
+        .heart-icon {
+            color: red;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <a href="/fr" style="position: absolute; top: 10px; right: 10px;">Français</a>
         <h1 class="logo">مرحبًا</h1>
-        <h2 class="subtitle">احسب معدل الباكالوريا الجزائرية</h2>
-        <h2 class="subtitle">أو احسب معدلك الجامعي في تخصص العلوم والتكنولوجيا</h2>
+        <h2 class="subtitle">حساب معدل الباكالوريا الجزائرية</h2>
+        <h2 class="subtitle">أو احسب معدلك الجامعي    </h2>
 
         <div class="button-container">
             <a href="{% url 'bac_page_ar' %}" title="احسب معدل الباكالوريا">حساب معدل الباكالوريا</a>
-            <a href="{% url 'st' %}" title="احسب معدلك الجامعي في تخصص العلوم والتكنولوجيا">حساب معدل العلوم والتكنولوجيا</a>
+            <a href="{% url 'st' %}" title="احسب معدلك الجامعي في تخصص العلوم والتكنولوجيا">حساب معدل التخصصات الجامعية  </a>
             
         </div>
 
@@ -130,9 +149,33 @@
                 <div class="feature-icon">📨</div>
 
                 <h3 class="feature-title">شارك الموقع</h3>
-                <p class="feature-description">شارك الموفع مع اصدقائك ليتمكنوا من حساب معدل الباكالوريا و معدل تخصص العلوم و التكنولوجيا الخاص بهم. </p>
+                <p class="feature-description">شارك الموفع مع اصدقائك ليتمكنوا من حساب معدل الباكالوريا و معدل تخصصاتهم الجامعية     . </p>
             </div>
         </div>
+        <p class="footer">Made with <span class="heart-icon">&#10084;</span> by Abdellah Zougari &copy; <span id="year"></span></p>
     </div>
+
+    <script>
+        function showFooter() {
+            const footer = document.querySelector('.footer');
+            const distanceFromTop = document.documentElement.scrollTop + window.innerHeight;
+            const documentHeight = document.documentElement.offsetHeight;
+            const isScrolledToBottom = distanceFromTop >= documentHeight;
+            if (isScrolledToBottom) {
+                footer.classList.add('visible');
+            } else {
+                footer.classList.remove('visible');
+            }
+        }
+
+        function updateYear() {
+            const yearElement = document.getElementById('year');
+            const currentYear = new Date().getFullYear();
+            yearElement.textContent = currentYear;
+        }
+
+        document.addEventListener('scroll', showFooter);
+        updateYear();
+    </script>
 </body>
 </html>

@@ -345,3 +345,49 @@ def philo(request):
     }
     template_name = 'calculator/philo.html'
     return calculate_average(request, subject_weights, template_name)
+
+
+def droitl1(request):
+    return render(request, 'calculator/droitl1.html')
+
+def droitl1s1(request):
+    if request.method == 'POST':
+        PL = float(request.POST.get('PL'))
+        IC = float(request.POST.get('IC'))
+        HS = float(request.POST.get('HS'))
+        LA = float(request.POST.get('LA'))
+        LAN = float(request.POST.get('LAN'))
+        LC = float(request.POST.get('LC'))
+        SC = float(request.POST.get('SC'))
+        LATD = float(request.POST.get('LATD'))
+        LCTD = float(request.POST.get('LCTD'))
+        SCTD = float(request.POST.get('SCTD'))
+        total = ((LA*3 + LATD*2)/5)*1 +((LC*3+LCTD*2)/5)*2 + ((SC*3+SCTD*2)/5)*2 + IC + HS + PL + LAN 
+
+        average = total / 9
+        average = round(average, 2)
+
+        # Render the result page or pass the average to the template context
+        return render(request, 'calculator/result_page.html', {'average': average})
+    return render(request, 'calculator/droitl1s1.html')
+def droitl1s2(request):
+    if request.method == 'POST':
+        SM = float(request.POST.get('SM'))
+        EP = float(request.POST.get('EP'))
+        IS = float(request.POST.get('IS'))
+        LA2 = float(request.POST.get('LA2'))
+        LAN2 = float(request.POST.get('LAN2'))
+        LC2 = float(request.POST.get('LC2'))
+        SC2 = float(request.POST.get('SC2'))
+        LATD2 = float(request.POST.get('LATD2'))
+        LCTD2 = float(request.POST.get('LCTD2'))
+        SCTD2 = float(request.POST.get('SCTD2'))
+        total = ((LA2*3 + LATD2*2)/5)*1 +((LC2*3+LCTD2*2)/5)*2 + ((SC2*3+SCTD2*2)/5)*2 + EP + IS + SM + LAN2 
+
+        average = total / 9
+        average = round(average, 2)
+
+        # Render the result page or pass the average to the template context
+        return render(request, 'calculator/result_page.html', {'average': average})
+    return render(request, 'calculator/droitl1s2.html')
+    

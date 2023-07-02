@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <title>حقوق السداسي الثاني</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="description" content="احسب درجاتك في الحقوق وتابع تقدمك. املأ الحقول بالدرجات واحصل على النتيجة.">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Cairo', Arial, sans-serif;
+            background-color: #f2f2f2;
+            padding: 20px;
+            margin: 0;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .input-box {
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 0;
+        }
+    </style>
+    <style>
+        /* Responsive Styles */
+        @media screen and (max-width: 600px) {
+            form {
+                max-width: 100%;
+            }
+
+            .input-box {
+                margin-bottom: 10px;
+            }
+
+            input[type="submit"] {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>حساب معدل السداسي الثاني لتخصص الحقوق   </h1>
+    <form method="post" action="#">
+        {% csrf_token %}
+        <div id="input-container"></div>
+        <input type="submit" value="إرسال">
+    </form>
+
+    <script>
+        const fieldData = [
+            { label: 'منهجية العلوم القانونية (مناهج البحث العلمي)', name: 'SM' },
+            { label: 'الاقتصاد السياسي', name: 'EP' },
+            { label: 'مدخل الى الشريعة الاسلامية ', name: 'IS' },
+            { label: 'القانون الاداري (النشاط الاداري)', name: 'LA2' },
+            { label: 'لغة أجنبية 2 (مصطلحات قانونية)', name: 'LAN2' },
+            { label: 'القانون الدستوري(النظم السياسية)', name: 'LC2' },
+            { label: 'مدخل للعلوم القانونية 2 (نظرية القانون)', name: 'SC2' },
+            { label: ' TD القانون الاداري (النشاط الاداري)', name: 'LATD2' },
+            { label: ' TD القانون الدستوري(النظم السياسية)', name: 'LCTD2' },
+            { label: 'TD مدخل للعلوم القانونية 2 (نظرية القانون)         ', name: 'SCTD2' },
+            
+            // Add more field objects as needed
+        ];
+        const inputContainer = document.getElementById('input-container');
+
+fieldData.forEach(field => {
+    const inputBox = document.createElement('div');
+    inputBox.className = 'input-box';
+
+    const label = document.createElement('label');
+    label.setAttribute('for', field.name);
+    label.textContent = field.label;
+
+    const input = document.createElement('input');
+    input.type = 'text';
+    input.id = field.name;
+    input.name = field.name;
+
+    inputBox.appendChild(label);
+    inputBox.appendChild(input);
+    inputContainer.appendChild(inputBox);
+});
+
+const form = document.querySelector('form');
+form.addEventListener('submit', (event) => {
+    const inputs = Array.from(document.querySelectorAll('.input-box input'));
+    const areAllFieldsValid = inputs.every(input => isValidNumberInRange(input.value));
+
+    const areAllFieldsFilled = inputs.every(input => input.value.trim() !== '');
+
+    if (!areAllFieldsValid || !areAllFieldsFilled) {
+        event.preventDefault();
+        alert('قم بإدخال جميع الدرجات، تحقق من عدم نسيان أو خطأ في أحد الحقول!');
+    }
+});
+
+function isValidNumberInRange(value) {
+    const number = Number(value);
+    return !isNaN(number) && number >= 0 && number <= 20;
+}
+
+</script>
+
+
+    <script>
+        const inputFields = Array.from(document.querySelectorAll('.input-box input'));
+        const submitButton = document.querySelector('input[type="submit"]');
+
+        function navigateInputs(event) {
+            const currentIndex = inputFields.findIndex(input => document.activeElement === input);
+            const lastIndex = inputFields.length - 1;
+
+            if (event.key === 'Enter') {
+                if (currentIndex === lastIndex) {
+                    submitButton.click();
+                    event.preventDefault();
+                } else {
+                    const nextIndex = (currentIndex + 1) % inputFields.length;
+                    inputFields[nextIndex].focus();
+                    event.preventDefault();
+                }
+            } else if (event.key === 'ArrowUp') {
+                const prevIndex = (currentIndex - 1 + inputFields.length) % inputFields.length;
+                inputFields[prevIndex].focus();
+                event.preventDefault();
+            } else if (event.key === 'ArrowDown') {
+                const nextIndex = (currentIndex + 1) % inputFields.length;
+                inputFields[nextIndex].focus();
+                event.preventDefault();
+            }
+        }
+
+        inputFields.forEach(input => {
+            input.addEventListener('keydown', navigateInputs);
+        });
+    </script>
+</body>
+</html>
