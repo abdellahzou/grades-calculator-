@@ -391,3 +391,123 @@ def droitl1s2(request):
         return render(request, 'calculator/result_page.html', {'average': average})
     return render(request, 'calculator/droitl1s2.html')
     
+
+from django.http import HttpResponse
+
+def sitemap_xml(request):
+    # Generate your sitemap XML content
+    xml_content = """<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+<url>
+  <loc>https://moyennedz.vercel.app/</loc>
+  <lastmod>2023-07-03T09:28:14+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://moyennedz.vercel.app/fr/</loc>
+  <lastmod>2023-07-03T09:28:14+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://moyennedz.vercel.app/bac_ar/</loc>
+  <lastmod>2023-07-03T09:28:14+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://moyennedz.vercel.app/st/</loc>
+  <lastmod>2023-07-03T09:28:14+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://moyennedz.vercel.app/bac/</loc>
+  <lastmod>2023-07-03T09:28:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://moyennedz.vercel.app/math/</loc>
+  <lastmod>2023-07-03T09:28:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://moyennedz.vercel.app/MathThechnique/</loc>
+  <lastmod>2023-07-03T09:28:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://moyennedz.vercel.app/Gestion/</loc>
+  <lastmod>2023-07-03T09:28:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://moyennedz.vercel.app/science/</loc>
+  <lastmod>2023-07-03T09:28:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://moyennedz.vercel.app/philo/</loc>
+  <lastmod>2023-07-03T09:28:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://moyennedz.vercel.app/LesLangues/</loc>
+  <lastmod>2023-07-03T09:28:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://moyennedz.vercel.app/st1er/</loc>
+  <lastmod>2023-07-03T09:28:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://moyennedz.vercel.app/telecome/</loc>
+  <lastmod>2023-07-03T09:28:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://moyennedz.vercel.app/droitl1/</loc>
+  <lastmod>2023-07-03T09:28:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://moyennedz.vercel.app/sts1/</loc>
+  <lastmod>2023-07-03T09:28:14+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://moyennedz.vercel.app/sts2/</loc>
+  <lastmod>2023-07-03T09:28:14+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://moyennedz.vercel.app/telecomeM1S1/</loc>
+  <lastmod>2023-07-03T09:28:14+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://moyennedz.vercel.app/telecomeM1S2/</loc>
+  <lastmod>2023-07-03T09:28:14+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://moyennedz.vercel.app/droitl1s1/</loc>
+  <lastmod>2023-07-03T09:28:14+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://moyennedz.vercel.app/droitl1s2/</loc>
+  <lastmod>2023-07-03T09:28:14+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+
+
+</urlset>
+    """
+
+
+
+    return HttpResponse(xml_content, content_type='text/xml')
