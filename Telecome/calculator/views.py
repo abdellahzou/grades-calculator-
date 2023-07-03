@@ -503,6 +503,11 @@ def sitemap_xml(request):
   <lastmod>2023-07-03T09:28:14+00:00</lastmod>
   <priority>0.51</priority>
 </url>
+<url>
+  <loc>https://moyennedz.vercel.app/robots.txt/</loc>
+  <lastmod>2023-07-03T09:28:14+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
 
 
 </urlset>
@@ -511,3 +516,8 @@ def sitemap_xml(request):
 
 
     return HttpResponse(xml_content, content_type='text/xml')
+
+
+def robots_txt(request):
+    content = render(request, 'robots.txt', content_type='text/plain')
+    return HttpResponse(content)
