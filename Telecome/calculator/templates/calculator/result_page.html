@@ -1,13 +1,26 @@
-<!-- result_page.html -->
 <!DOCTYPE html>
 <html>
 <head>
     <title>Result Page</title>
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             font-family: Arial, sans-serif;
             background-color: #f2f2f2;
             padding: 20px;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
         h1 {
@@ -15,9 +28,57 @@
             text-align: center;
             margin-top: 0;
         }
+
+        .contact-container {
+            margin-top: 30px;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .contact-title {
+            text-align: center;
+            margin-bottom: 10px;
+            color: #333333;
+        }
+
+        .contact-subtitle {
+            text-align: center;
+            margin-top: 10px;
+            color: #777777;
+        }
+
+        .contact-details {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .contact-details p {
+            margin: 10px 0;
+            font-size: 16px;
+            line-height: 1.4;
+        }
+
+        .contact-details a {
+            color: #333333;
+            text-decoration: none;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
-    <h1>RAK DIT: {{ average }}</h1>
+    <div class="container">
+        <h1>RAK DIT: {{ average }}</h1>
+        
+        <div class="contact-container">
+            <h2 class="contact-title">Contact the Developer</h2>
+            <h3 class="contact-subtitle">Or help me add more specialties</h3>
+            <div class="contact-details">
+                <p>Facebook: <a href="https://www.facebook.com/AbdellahZouggari">Abdellah Zouggari</a></p>
+                <p>Instagram: <a href="https://www.instagram.com/abdellah_zou/">abdellah_zou</a></p>
+                <p>Gmail: <a href="mailto:abdellahzouggari28@gmail.com">abdellahzouggari28@gmail.com</a></p>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
