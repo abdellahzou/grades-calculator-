@@ -2,74 +2,85 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Moyenne STS1</title>
+    <title>Moyenne MIS1</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
-            padding: 20px;
-            margin: 0;
-        }
+<meta charset="UTF-8">
+<meta name="description" content="Calculez les notes du premiersemestre en Math et information et suivez vos progrès. Remplissez les champs avec des degrés et obtenez le résultat.">
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
 
+    body {
+        font-family: 'Cairo', Arial, sans-serif;
+        background-color: #f2f2f2;
+        padding: 20px;
+        margin: 0;
+    }
+
+    form {
+        max-width: 400px;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .input-box {
+        margin-bottom: 15px;
+    }
+
+    label {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    input[type="text"] {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    input[type="submit"] {
+        background-color: #4CAF50;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+
+    h1 {
+        text-align: center;
+        margin-top: 0;
+    }
+</style>
+<style>
+    /* Responsive Styles */
+    @media screen and (max-width: 600px) {
         form {
-            max-width: 400px;
-            margin: 0 auto;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            max-width: 100%;
         }
 
         .input-box {
-            margin-bottom: 15px;
-        }
-
-        label {
-            font-weight: bold;
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        input[type="text"] {
-            width: 100%;
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
+            margin-bottom: 10px;
         }
 
         input[type="submit"] {
-            background-color: #4CAF50;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
+            width: 100%;
         }
-
-        input[type="submit"]:hover {
-            background-color: #45a049;
-        }
-    </style>
-    <style>
-        /* Responsive Styles */
-        @media screen and (max-width: 600px) {
-            form {
-                max-width: 100%;
-            }
-
-            .input-box {
-                margin-bottom: 10px;
-            }
-
-            input[type="submit"] {
-                width: 100%;
-            }
-        }
-    </style>
+    }
+</style>
 </head>
 <body>
+<h1>Calculez la moyenne du premier semestre en Math et Informatique   </h1>
+
 
         <form method="post" action="#">
             {% csrf_token %}
@@ -79,13 +90,19 @@
 
         <script>
     const fieldData = [
-        { label: 'Analyse1:', name: 'ana1' },
-        { label: 'Algebre 1:', name: 'alg1' },
-        { label: 'Algorithm et structure de donnees1:', name: 'algo1' },
-        { label: 'Structure machine 1:', name: 'sm1' },
-        { label: 'Physique 1:', name: 'phy1' },
-        { label: 'Terminologie scientifique et expression ecrite:', name: 'tseee' },
-        { label: 'Langues etranger:', name: 'le' },
+        { label: 'Examen Analyse1:', name: 'ana1' },
+        { label: 'TD Analyse1:', name: 'TDana1' },
+        { label: 'Examen Algebre 1:', name: 'alg1' },
+        { label: 'TD Algebre 1:', name: 'TDalg1' },
+        { label: 'Examen Algorithm et structure de donnees1:', name: 'algo1' },
+        { label: 'TD Algorithm et structure de donnees1:', name: 'TDalgo1' },
+        { label: 'TP Algorithm et structure de donnees1:', name: 'TPalgo1' },
+        { label: 'Examen Structure machine 1:', name: 'sm1' },
+        { label: 'TD Structure machine 1:', name: 'TDsm1' },
+        { label: 'Examen Physique 1:', name: 'phy1' },
+        { label: 'TD Physique 1:', name: 'TDphy1' },
+        { label: 'Examen Terminologie scientifique et expression ecrite:', name: 'tseee' },
+        { label: 'Examen Langues etranger:', name: 'le' },
         
         
         

@@ -4,73 +4,82 @@
 <head>
     <title>Moyenne STS1</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
-            padding: 20px;
-            margin: 0;
-        }
+<meta charset="UTF-8">
+<meta name="description" content="Calculez les notes du premier semestre en science et technologie et suivez vos progrès. Remplissez les champs avec des degrés et obtenez le résultat.">
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
 
+    body {
+        font-family: 'Cairo', Arial, sans-serif;
+        background-color: #f2f2f2;
+        padding: 20px;
+        margin: 0;
+    }
+
+    form {
+        max-width: 400px;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .input-box {
+        margin-bottom: 15px;
+    }
+
+    label {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    input[type="text"] {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    input[type="submit"] {
+        background-color: #4CAF50;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+
+    h1 {
+        text-align: center;
+        margin-top: 0;
+    }
+</style>
+<style>
+    /* Responsive Styles */
+    @media screen and (max-width: 600px) {
         form {
-            max-width: 400px;
-            margin: 0 auto;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            max-width: 100%;
         }
 
         .input-box {
-            margin-bottom: 15px;
-        }
-
-        label {
-            font-weight: bold;
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        input[type="text"] {
-            width: 100%;
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
+            margin-bottom: 10px;
         }
 
         input[type="submit"] {
-            background-color: #4CAF50;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
+            width: 100%;
         }
-
-        input[type="submit"]:hover {
-            background-color: #45a049;
-        }
-    </style>
-    <style>
-        /* Responsive Styles */
-        @media screen and (max-width: 600px) {
-            form {
-                max-width: 100%;
-            }
-
-            .input-box {
-                margin-bottom: 10px;
-            }
-
-            input[type="submit"] {
-                width: 100%;
-            }
-        }
-    </style>
+    }
+</style>
 </head>
 <body>
-
+<h1>Calculez la moyenne du premier semestre en science et technologie   </h1>
         <form method="post" action="#">
             {% csrf_token %}
             <div id="input-container"></div>
@@ -81,17 +90,17 @@
     const fieldData = [
         { label: 'Examem Math 1:', name: 'exam-math1' },
         { label: 'Examem Physique 1:', name: 'exam-physique1' },
-        { label: 'Examem Structure de Matiere:', name: 'exam-sdm' },
+        { label: 'Examem Structure de la Matiere:', name: 'exam-sdm' },
         { label: 'Examem Informatique 1:', name: 'exam-info' },
         { label: 'TD Math 1:', name: 'TD-math1' },
         { label: 'TD Physique 1:', name: 'TD-phy1' },
-        { label: 'TD Structure de Matiere:', name: 'TD-sdm' },
+        { label: 'TD Structure de la Matiere:', name: 'TD-sdm' },
         { label: 'TD Informatique:', name: 'TD-informatique' },
         { label: 'TP Physique 1:', name: 'TP-phy' },
         { label: 'TP Chimie1:', name: 'TD-chimie' },
-        { label: 'Examen Methologie:', name: 'exam-metho' },
+        { label: 'Examen Méthodologie De La Rédaction:', name: 'exam-metho' },
         { label: 'Examen Langues etrangers:', name: 'exam-lang' },
-        { label: 'Les metier:', name: 'Les metier' },
+        { label: 'Les Métiers En Sciences Et Technologies 1:', name: 'Les metier' },
         
         
         

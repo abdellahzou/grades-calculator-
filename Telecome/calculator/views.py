@@ -10,15 +10,21 @@ def mi(request):
 def mis1(request):
     if request.method == 'POST':
         ana1 = float(request.POST.get('ana1'))
+        TDana1 = float(request.POST.get('TDana1'))
         alg1 = float(request.POST.get('alg1'))
+        TDalg1 = float(request.POST.get('TDalg1'))
         algo1 = float(request.POST.get('algo1'))
+        TDalgo1 = float(request.POST.get('TDalgo1'))
+        TPalgo1 = float(request.POST.get('TPalgo1'))
         sm1 = float(request.POST.get('sm1'))
+        TDsm1 = float(request.POST.get('TDsm1'))
         phy1 = float(request.POST.get('phy1'))
+        TDphy1 = float(request.POST.get('TDphy1'))
         tseee = float(request.POST.get('tseee'))
         le = float(request.POST.get('le'))
         
         # Perform calculations or any desired actions
-        total = ana1*4 + alg1*3 + algo1*4 + sm1*3 + phy1*2 + tseee + le
+        total = ((ana1*0.6)+(TDana1*0.4))*4 + ((alg1*0.6)+(TDalg1*0.4))*3 + ((algo1*0.6)+(TDalgo1*0.2)+(TPalgo1*0.2))*4 + ((sm1*0.6)+(TDsm1*0.4))*3 + ((phy1*0.6)+(TDphy1*0.4))*2 + tseee + le
         average = total / 18
         average = round(average, 2)
 
@@ -30,17 +36,25 @@ def mis1(request):
 def mis2(request):
     if request.method == 'POST':
         ana2 = float(request.POST.get('ana2'))
+        TDana2 = float(request.POST.get('TDana2'))
         alg2 = float(request.POST.get('alg2'))
+        TDalg2 = float(request.POST.get('TDalg2'))
         algo2 = float(request.POST.get('algo2'))
+        TDalgo2 = float(request.POST.get('TDalgo2'))
+        TPalgo2 = float(request.POST.get('TPalgo2'))
         sm2 = float(request.POST.get('sm2'))
+        TDsm2 = float(request.POST.get('TDsm2'))
         phy2 = float(request.POST.get('phy2'))
+        TDphy2 = float(request.POST.get('TDphy2'))
         tic = float(request.POST.get('tic'))
         ipsd = float(request.POST.get('ipsd'))
+        TDipsd = float(request.POST.get('TDipsd'))
         oppm = float(request.POST.get('oppm'))
+        TPoppm = float(request.POST.get('TPoppm'))
         
         # Perform calculations or any desired actions
-        total = ana2*4 + alg2*2 + algo2*2 + sm2*2 + phy2*2 + tic + ipsd*2 + oppm
-        average = total / 18
+        total = ((ana2*0.6)+(TDana2*0.4))*4 + ((alg2*0.6)+(TDalg2*0.4))*2 + ((algo2*0.6)+(TDalgo2*0.2)+(TPalgo2*0.2))*2 + ((sm2*0.6)+(TDsm2*0.4))*2 + ((phy2*0.6)+(TDphy2*0.4))*2 + tic + ((ipsd*0.6)+(TDipsd*0.4))*2 + ((oppm*0.6)+(TPoppm*0.4))*1
+        average = total / 16
         average = round(average, 2)
 
         # Render the result page or pass the average to the template context
