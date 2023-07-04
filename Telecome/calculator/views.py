@@ -417,109 +417,121 @@ def sitemap_xml(request):
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 <!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
 <url>
   <loc>https://moyennedz.vercel.app/</loc>
-  <lastmod>2023-07-03T09:28:14+00:00</lastmod>
+  <lastmod>2023-07-04T15:41:18+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
   <loc>https://moyennedz.vercel.app/fr/</loc>
-  <lastmod>2023-07-03T09:28:14+00:00</lastmod>
+  <lastmod>2023-07-04T15:41:18+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://moyennedz.vercel.app/bac_ar/</loc>
-  <lastmod>2023-07-03T09:28:14+00:00</lastmod>
+  <lastmod>2023-07-04T15:41:18+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://moyennedz.vercel.app/st/</loc>
-  <lastmod>2023-07-03T09:28:14+00:00</lastmod>
+  <lastmod>2023-07-04T15:41:18+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://moyennedz.vercel.app/bac/</loc>
-  <lastmod>2023-07-03T09:28:14+00:00</lastmod>
+  <lastmod>2023-07-04T15:41:18+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://moyennedz.vercel.app/math/</loc>
-  <lastmod>2023-07-03T09:28:14+00:00</lastmod>
+  <lastmod>2023-07-04T15:41:18+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://moyennedz.vercel.app/MathThechnique/</loc>
-  <lastmod>2023-07-03T09:28:14+00:00</lastmod>
+  <lastmod>2023-07-04T15:41:18+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://moyennedz.vercel.app/Gestion/</loc>
-  <lastmod>2023-07-03T09:28:14+00:00</lastmod>
+  <lastmod>2023-07-04T15:41:18+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://moyennedz.vercel.app/science/</loc>
-  <lastmod>2023-07-03T09:28:14+00:00</lastmod>
+  <lastmod>2023-07-04T15:41:18+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://moyennedz.vercel.app/philo/</loc>
-  <lastmod>2023-07-03T09:28:14+00:00</lastmod>
+  <lastmod>2023-07-04T15:41:18+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://moyennedz.vercel.app/LesLangues/</loc>
-  <lastmod>2023-07-03T09:28:14+00:00</lastmod>
+  <lastmod>2023-07-04T15:41:18+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://moyennedz.vercel.app/st1er/</loc>
-  <lastmod>2023-07-03T09:28:14+00:00</lastmod>
+  <lastmod>2023-07-04T15:41:18+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://moyennedz.vercel.app/telecome/</loc>
-  <lastmod>2023-07-03T09:28:14+00:00</lastmod>
+  <lastmod>2023-07-04T15:41:18+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://moyennedz.vercel.app/mi/</loc>
+  <lastmod>2023-07-04T15:41:18+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://moyennedz.vercel.app/droitl1/</loc>
-  <lastmod>2023-07-03T09:28:14+00:00</lastmod>
+  <lastmod>2023-07-04T15:41:18+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://moyennedz.vercel.app/sts1/</loc>
-  <lastmod>2023-07-03T09:28:14+00:00</lastmod>
+  <lastmod>2023-07-04T15:41:18+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>https://moyennedz.vercel.app/sts2/</loc>
-  <lastmod>2023-07-03T09:28:14+00:00</lastmod>
+  <lastmod>2023-07-04T15:41:18+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>https://moyennedz.vercel.app/telecomeM1S1/</loc>
-  <lastmod>2023-07-03T09:28:14+00:00</lastmod>
+  <lastmod>2023-07-04T15:41:18+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>https://moyennedz.vercel.app/telecomeM1S2/</loc>
-  <lastmod>2023-07-03T09:28:14+00:00</lastmod>
+  <lastmod>2023-07-04T15:41:18+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://moyennedz.vercel.app/mis1/</loc>
+  <lastmod>2023-07-04T15:41:18+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://moyennedz.vercel.app/mis2/</loc>
+  <lastmod>2023-07-04T15:41:18+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>https://moyennedz.vercel.app/droitl1s1/</loc>
-  <lastmod>2023-07-03T09:28:14+00:00</lastmod>
+  <lastmod>2023-07-04T15:41:18+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>https://moyennedz.vercel.app/droitl1s2/</loc>
-  <lastmod>2023-07-03T09:28:14+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://moyennedz.vercel.app/robots.txt/</loc>
-  <lastmod>2023-07-03T09:28:14+00:00</lastmod>
+  <lastmod>2023-07-04T15:41:18+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 
