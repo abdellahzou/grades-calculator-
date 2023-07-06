@@ -1,14 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Bac Page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calculez votre moyenne de Baccalauréat (BAC) en Algérie. Obtenez des résultats précis et suivez votre progression.">
+    <title>Calculez votre Moyenne de Baccalauréat</title>
+    <link rel="icon" href="data:,">
     <style>
+        /* Add some basic styling */
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
+
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Cairo', Arial, sans-serif;
             background-color: #f2f2f2;
             text-align: center;
             margin: 0;
             padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; 
         }
          
         .container {
@@ -66,37 +76,35 @@
     }
      /* Footer Styling */
      .footer {
-            text-align: center;
             padding: 10px;
             background-color: #f9f9f9;
-            position: fixed;
-            bottom: 0;
-            left: 0;
+            margin-top: auto; /* Push the footer to the bottom of the page */
             width: 100%;
-            display: none;
-        }
-
-        .footer.visible {
-            display: block;
-        }
-
-        .heart-icon {
-            color: red;
-        }
+     }
 </style>
 </head>
 <body>
     <div class="container">
         <h1 class="logo">Choisissez votre spécialité du bac.</h1>
+        <h2 class="subtitle">Toutes les spécialités du bac sont disponibles pour calculer, bon courage !</h2>
         <div class="button-container">
-            <a href="{% url 'Math' %}">Calculer la moyenne de bac Math</a>
-            <a href="{% url 'Math thechnique' %}">Calculer la moyenne de bac Math Technique</a>
-            <a href="{% url 'Gestion' %}">Calculer la moyenne de bac Gestion</a>
-            <a href="{% url 'science' %}">Calculer la moyenne de bac Science</a>
-            <a href="{% url 'philo' %}">Calculer la moyenne de bac Philo</a>
-            <a href="{% url 'les_langues' %}">Calculer la moyenne de bac Les langues</a>
+            <a href="{% url 'Math' %}" title="Calculer la moyenne de bac Mathematique">Calculer la moyenne de bac Math</a>
+            <a href="{% url 'Math thechnique' %}" title="Calculer la moyenne de bac Math Technique">Calculer la moyenne de bac Math Technique</a>
+            <a href="{% url 'Gestion' %}" title="Calculer la moyenne de bac Gestion et Economie">Calculer la moyenne de bac Gestion</a>
+            <a href="{% url 'science' %}" title="Calculer la moyenne de bac Science de nature">Calculer la moyenne de bac Science</a>
+            <a href="{% url 'philo' %}" title="Calculer la moyenne de bac Philosophie">Calculer la moyenne de bac Philo</a>
+            <a href="{% url 'les_langues' %}" title="Calculer la moyenne de bac Les langues etrangeres">Calculer la moyenne de bac Les langues</a>
         </div>
     </div>
+     <!-- Add a footer for better SEO -->
+     <footer class="footer visible">
+        <p>Calculez votre moyenne de Baccalauréat (BAC) en Algérie sur notre site. Obtenez des résultats précis et suivez votre progression.</p>
+        <p>Made with <span class="heart-icon">&hearts;</span> by Abdellah Zouggari</p>
+    </footer>
+
+    <script>
+        // Add the code for any JavaScript functionality if needed
+    </script>
     
 </body>
 </html>
