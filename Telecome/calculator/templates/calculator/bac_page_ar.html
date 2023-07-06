@@ -1,12 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-M2RB798VY7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-M2RB798VY7');
+</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="حساب معدل الباكالوريا في الجزائر. احصل على نتائج دقيقة وتتبع تقدمك.">
     <meta name="keywords" content="حساب معدل الباكالوريا, الباكالوريا, التعليم, التعليم في الجزائر">
     <meta name="author" content="moyennedz">
     <title>صفحة الباكالوريا - حساب معدل الباكالوريا</title>
+    <link rel="icon" href="data:,">
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
@@ -71,6 +81,12 @@
                 margin: 8px;
             }
         }
+        .footer {
+            padding: 10px;
+            background-color: #f9f9f9;
+            margin-top: auto; /* Push the footer to the bottom of the page */
+            width: 100%;
+     }
     </style>
 </head>
 <body> 
@@ -84,5 +100,9 @@
             <a href="{% url 'philo' %}">حساب معدل الباكالوريا في شعبة الفلسفة</a>
             <a href="{% url 'les_langues' %}">حساب معدل الباكالوريا في شعبة اللغات الأجنبية</a>
         </div>
+        <footer class="footer visible">
+            <p>اختر تخصصك و قم بحساب معدل البكالوريا الخاص بك بسهولة و دقة</p>
+            <p>Made with <span class="heart-icon">&hearts;</span> by Abdellah Zouggari</p>
+        </footer>
     </body>
 </html>
