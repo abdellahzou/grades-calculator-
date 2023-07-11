@@ -1,0 +1,72 @@
+{% extends 'calculator/base.html' %}
+
+{% block title %}Moyenne L2S1{% endblock %}
+
+{% block content %}
+    <h1>Calculez la moyenne du premier semestre </h1>
+
+    <form method="post" action="#">
+        {% csrf_token %}
+        <div id="input-container"></div>
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        const fieldData = [
+            { label: 'Examen Mathematiques 3:', name: 'exam-math3' },
+            { label: 'TD Math3:', name: 'TD-math3' },
+            { label: 'Examen ondes et vibration :', name: 'exam-onde' },
+            { label: 'TD ondes et vibration:', name: 'TD-onde' },
+            { label: 'Examen ELECTRONIQUE fondamontale  1:', name: 'exam-ele' },
+            { label: 'TD ELECTRONIQUE fondamontale  1:', name: 'TD-ele' },
+            { label: 'Examen electrothechnique fondamontale 1:', name: 'exam-eleth' },
+            { label: 'TD electrothechnique fondamontale 1:', name: 'TD-eleth' },
+            { label: 'Exmen probalities et statistiques:', name: 'exam-proba' },
+            { label: 'TD probalities et statistiques:', name: 'TD-proba' },
+            { label: 'Examen informatique 3:', name: 'exam-info3' },
+            { label: 'TP electrothechnique et ELECTRONIQUE 1:', name: 'TP-ele' },
+            { label: 'TP ondes et vibrations:', name: 'TP-onde' },
+            { label: 'Examen etat de lart du genie electrique:', name: 'exam-etat' },
+            { label: 'Examen energie et evironnement:', name: 'exam-energie' },
+            { label: 'Examen anglais technique :', name: 'exam-anglais' },
+            // Add more field objects as needed
+        ];
+
+        const inputContainer = document.getElementById('input-container');
+
+        fieldData.forEach(field => {
+            const inputBox = document.createElement('div');
+            inputBox.className = 'input-box';
+
+            const label = document.createElement('label');
+            label.setAttribute('for', field.name);
+            label.textContent = field.label;
+
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.id = field.name;
+            input.name = field.name;
+
+            inputBox.appendChild(label);
+            inputBox.appendChild(input);
+            inputContainer.appendChild(inputBox);
+        });
+
+        const form = document.querySelector('form');
+        form.addEventListener('submit', (event) => {
+            const inputs = Array.from(document.querySelectorAll('.input-box input'));
+            const areAllFieldsValid = inputs.every(input => isValidNumberInRange(input.value));
+            const areAllFieldsFilled = inputs.every(input => input.value.trim() !== '');
+
+            if (!areAllFieldsValid || !areAllFieldsFilled) {
+                event.preventDefault();
+                alert('قم بإدخال جميع الدرجات، تحقق من عدم نسيان أو خطأ في أحد الحقول!');
+            }
+        });
+
+        function isValidNumberInRange(value) {
+            const number = Number(value);
+            return !isNaN(number) && number >= 0 && number <= 20;
+        }
+    </script>
+{% endblock %}

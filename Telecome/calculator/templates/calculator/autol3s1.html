@@ -1,0 +1,72 @@
+{% extends 'calculator/base.html' %}
+
+{% block title %}Moyenne AUTOL3S1{% endblock %}
+
+{% block content %}
+    <h1>Calculez la moyenne du premier semestre </h1>
+
+    <form method="post" action="#">
+        {% csrf_token %}
+        <div id="input-container"></div>
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        const fieldData = [
+            { label: 'Examen Commande des systèmes linéaires: Coefficient 2:', name: 'exam-commande' },
+            { label: 'TD Commande des systèmes linéaires: Coefficient 2:', name: 'TD-commande' },
+            { label: 'Examen Electronique de puissance: Coefficient 2 :', name: 'exam-electronique' },
+            { label: 'TD Electronique de puissance: Coefficient 2:', name: 'TD-electronique' },
+            { label: 'Examen Microprocesseurs et Microcontrôleurs: Coefficient 3:', name: 'exam-microprocesseurs' },
+            { label: 'TD Microprocesseurs et Microcontrôleurs: Coefficient 3:', name: 'TD-microprocesseurs' },
+            { label: 'Examen Programmation en C++: Coefficient 1:', name: 'exam-programmation' },
+            { label: 'TP Commande des systèmes linéaires: Coefficient 1:', name: 'TP-commande' },
+            { label: 'TP Electronique de puissance: Coefficient 1:', name: 'TP-electronique' },
+            { label: 'TP Modélisation et identification des systèmes: Coefficient 1:', name: 'TP-modelisation' },
+            { label: 'TP Microprocesseurs et Microcontrôleurs: Coefficient 1:', name: 'TP-microprocesseurs' },
+            { label: 'TP Programmation en C++: Coefficient 1:', name: 'TP-programmation' },
+            { label: 'Examen Modélisation et identification des systèmes: Coefficient 1:', name: 'exam-modelisation' },
+            { label: 'Examen Normes et Certification: Coefficient 1:', name: 'exam-normes' },
+            { label: 'Examen Energies renouvelables : Production et stockage: Coefficient 1:', name: 'exam-energie' },
+            { label: 'Examen Anglais en Automatique: Coefficient 1:', name: 'exam-anglais' },
+            // Add more field objects as needed
+        ];
+
+        const inputContainer = document.getElementById('input-container');
+
+        fieldData.forEach(field => {
+            const inputBox = document.createElement('div');
+            inputBox.className = 'input-box';
+
+            const label = document.createElement('label');
+            label.setAttribute('for', field.name);
+            label.textContent = field.label;
+
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.id = field.name;
+            input.name = field.name;
+
+            inputBox.appendChild(label);
+            inputBox.appendChild(input);
+            inputContainer.appendChild(inputBox);
+        });
+
+        const form = document.querySelector('form');
+        form.addEventListener('submit', (event) => {
+            const inputs = Array.from(document.querySelectorAll('.input-box input'));
+            const areAllFieldsValid = inputs.every(input => isValidNumberInRange(input.value));
+            const areAllFieldsFilled = inputs.every(input => input.value.trim() !== '');
+
+            if (!areAllFieldsValid || !areAllFieldsFilled) {
+                event.preventDefault();
+                alert('قم بإدخال جميع الدرجات، تحقق من عدم نسيان أو خطأ في أحد الحقول!');
+            }
+        });
+
+        function isValidNumberInRange(value) {
+            const number = Number(value);
+            return !isNaN(number) && number >= 0 && number <= 20;
+        }
+    </script>
+{% endblock %}

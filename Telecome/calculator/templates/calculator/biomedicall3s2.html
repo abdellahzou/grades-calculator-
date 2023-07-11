@@ -1,0 +1,72 @@
+{% extends 'calculator/base.html' %}
+
+{% block title %}Moyenne Biomedical L3S2{% endblock %}
+
+{% block content %}
+    <h1>Calculez la moyenne L3 Biomedical du deuxieme semestre </h1>
+
+    <form method="post" action="#">
+        {% csrf_token %}
+        <div id="input-container"></div>
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        const fieldData = [
+  { label: 'Examen Chaîne d\'acquisition numérique: Coefficient 3:', name: 'exam-acquisition' },
+  { label: 'TD Chaîne d\'acquisition numérique: Coefficient 3:', name: 'TD-acquisition' },
+  { label: 'Examen Biomatériaux: Coefficient 2:', name: 'exam-biomateriaux' },
+  { label: 'TD Biomatériaux: Coefficient 2:', name: 'TD-biomateriaux' },
+  { label: 'Examen Instrumentation médicale: Coefficient 2:', name: 'exam-instrumentation' },
+  { label: 'TD Instrumentation médicale: Coefficient 2:', name: 'TD-instrumentation' },
+  { label: 'Examen Traitement des signaux physiologiques: Coefficient 2:', name: 'exam-traitement' },
+  { label: 'TD Traitement des signaux physiologiques: Coefficient 2:', name: 'TD-traitement' },
+  { label: 'Projet de Fin de Cycle (Milieu hospitalier): Coefficient 2:', name: 'projet-fin' },
+  { label: 'TP Chaîne d\'acquisition numérique: Coefficient 1:', name: 'TP-acquisition' },
+  { label: 'TP Instrumentation et signal: Coefficient 1:', name: 'TP-instrumentation' },
+  { label: 'Examen Maquettes: Coefficient 1:', name: 'exam-maquettes' },
+  { label: 'Examen Sécurité des appareils en Biomédical: Coefficient 1:', name: 'exam-securite' },
+  { label: 'Examen Éléments des systèmes robotisés: Coefficient 1:', name: 'exam-elements' },
+  { label: 'Examen Projet professionnel et gestion d\'entreprise: Coefficient 1:', name: 'exam-projetpro' },
+  // Add more field objects as needed
+];
+
+
+        const inputContainer = document.getElementById('input-container');
+
+        fieldData.forEach(field => {
+            const inputBox = document.createElement('div');
+            inputBox.className = 'input-box';
+
+            const label = document.createElement('label');
+            label.setAttribute('for', field.name);
+            label.textContent = field.label;
+
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.id = field.name;
+            input.name = field.name;
+
+            inputBox.appendChild(label);
+            inputBox.appendChild(input);
+            inputContainer.appendChild(inputBox);
+        });
+
+        const form = document.querySelector('form');
+        form.addEventListener('submit', (event) => {
+            const inputs = Array.from(document.querySelectorAll('.input-box input'));
+            const areAllFieldsValid = inputs.every(input => isValidNumberInRange(input.value));
+            const areAllFieldsFilled = inputs.every(input => input.value.trim() !== '');
+
+            if (!areAllFieldsValid || !areAllFieldsFilled) {
+                event.preventDefault();
+                alert('قم بإدخال جميع الدرجات، تحقق من عدم نسيان أو خطأ في أحد الحقول!');
+            }
+        });
+
+        function isValidNumberInRange(value) {
+            const number = Number(value);
+            return !isNaN(number) && number >= 0 && number <= 20;
+        }
+    </script>
+{% endblock %}

@@ -1,0 +1,73 @@
+{% extends 'calculator/base.html' %}
+
+{% block title %}Moyenne ElectroniqueL3S2{% endblock %}
+
+{% block content %}
+    <h1>Calculez la moyenne du deuxieme semestre </h1>
+
+    <form method="post" action="#">
+        {% csrf_token %}
+        <div id="input-container"></div>
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        const fieldData = [
+            { label: 'Régulation industrielle: Coefficient 2:', name: 'exam-captures' },
+            { label: 'TD Régulation industrielle: Coefficient 2:', name: 'TD-captures' },
+            { label: 'Examen Automatismes Industriels: Coefficient 2 :', name: 'exam-electronique' },
+            { label: 'TD Automatismes Industriels: Coefficient 2:', name: 'TD-electronique' },
+            { label: 'Examen Commande des machines électriques: Coefficient 3 :', name: 'exam-asservissement' },
+            { label: 'TD Commande des machines électriques: Coefficient 3:', name: 'TD-asservissement' },
+            { label: 'Examen Matériaux et introduction à la Haute Tension: Coefficient 2:', name: 'exam-impulsions' },
+            { label: 'TD Matériaux et introduction à la Haute Tension: Coefficient 2:', name: 'TD-impulsions' },
+
+            { label: 'Projet de Fin de Cycle: Coefficient 2:', name: 'exam-projet' },
+            { label: 'TP Commande des machines: Coefficient 1:', name: 'TP-Asservissements' },
+            { label: 'TP Régulation Industrielle: Coefficient 1:', name: 'TP-Capteurs' },
+            { label: 'TP Automatismes/TP Matériaux et HT: Coefficient 1:', name: 'TP-impulsions' },
+            { label: 'Examen Protection des réseaux électriques: Coefficient 1:', name: 'exam-Dispositifs' },
+            { label: 'Projet professionnel et gestion de entreprise: Coefficient 1:', name: 'exam-professionnel' },
+            { label: 'Examen Maintenance Industrielle: Coefficient 1:', name: 'exam-maintenance' },
+
+            // Add more field objects as needed
+        ];
+
+        const inputContainer = document.getElementById('input-container');
+
+        fieldData.forEach(field => {
+            const inputBox = document.createElement('div');
+            inputBox.className = 'input-box';
+
+            const label = document.createElement('label');
+            label.setAttribute('for', field.name);
+            label.textContent = field.label;
+
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.id = field.name;
+            input.name = field.name;
+
+            inputBox.appendChild(label);
+            inputBox.appendChild(input);
+            inputContainer.appendChild(inputBox);
+        });
+
+        const form = document.querySelector('form');
+        form.addEventListener('submit', (event) => {
+            const inputs = Array.from(document.querySelectorAll('.input-box input'));
+            const areAllFieldsValid = inputs.every(input => isValidNumberInRange(input.value));
+            const areAllFieldsFilled = inputs.every(input => input.value.trim() !== '');
+
+            if (!areAllFieldsValid || !areAllFieldsFilled) {
+                event.preventDefault();
+                alert('قم بإدخال جميع الدرجات، تحقق من عدم نسيان أو خطأ في أحد الحقول!');
+            }
+        });
+
+        function isValidNumberInRange(value) {
+            const number = Number(value);
+            return !isNaN(number) && number >= 0 && number <= 20;
+        }
+    </script>
+{% endblock %}

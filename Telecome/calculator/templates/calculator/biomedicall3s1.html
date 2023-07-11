@@ -1,0 +1,73 @@
+{% extends 'calculator/base.html' %}
+
+{% block title %}Moyenne Biomedical L3S1{% endblock %}
+
+{% block content %}
+    <h1>Calculez la moyenne L3 Biomedical du 1er semestre </h1>
+
+    <form method="post" action="#">
+        {% csrf_token %}
+        <div id="input-container"></div>
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        const fieldData = [
+  { label: 'Examen Asservissements continus et Régulation: Coefficient 3:', name: 'exam-asservissements' },
+  { label: 'TD Asservissements continus et Régulation: Coefficient 3:', name: 'TD-asservissements' },
+  { label: 'Examen Electronique générale: Coefficient 2:', name: 'exam-electronique' },
+  { label: 'TD Electronique générale: Coefficient 2:', name: 'TD-electronique' },
+  { label: 'Examen Traitement du signal: Coefficient 2:', name: 'exam-signal' },
+  { label: 'TD Traitement du signal: Coefficient 2:', name: 'TD-signal' },
+  { label: 'Examen Biophysique: Coefficient 2:', name: 'exam-biophysique' },
+  { label: 'TD Biophysique: Coefficient 2:', name: 'TD-biophysique' },
+  { label: 'TP Asservissements et Régulation: Coefficient 1:', name: 'TP-asservissements' },
+  { label: 'TP Electronique générale: Coefficient 1:', name: 'TP-electronique' },
+  { label: 'Examen Informatique médicale: Coefficient 2:', name: 'exam-informatique' },
+  { label: 'TP Informatique médicale: Coefficient 2:', name: 'TP-informatique' },
+  { label: 'TP Biophysique et TP signal: Coefficient 1:', name: 'TP-biophysique' },
+  { label: 'Examen Ondes et applications en Médical: Coefficient 1:', name: 'exam-ondes' },
+  { label: 'Examen Terminologie et normes dans le biomédical: Coefficient 1:', name: 'exam-terminologie' },
+  { label: 'Examen Maintenance assistée par ordinateur: Coefficient 1:', name: 'exam-maintenance' },
+  // Add more field objects as needed
+];
+
+
+        const inputContainer = document.getElementById('input-container');
+
+        fieldData.forEach(field => {
+            const inputBox = document.createElement('div');
+            inputBox.className = 'input-box';
+
+            const label = document.createElement('label');
+            label.setAttribute('for', field.name);
+            label.textContent = field.label;
+
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.id = field.name;
+            input.name = field.name;
+
+            inputBox.appendChild(label);
+            inputBox.appendChild(input);
+            inputContainer.appendChild(inputBox);
+        });
+
+        const form = document.querySelector('form');
+        form.addEventListener('submit', (event) => {
+            const inputs = Array.from(document.querySelectorAll('.input-box input'));
+            const areAllFieldsValid = inputs.every(input => isValidNumberInRange(input.value));
+            const areAllFieldsFilled = inputs.every(input => input.value.trim() !== '');
+
+            if (!areAllFieldsValid || !areAllFieldsFilled) {
+                event.preventDefault();
+                alert('قم بإدخال جميع الدرجات، تحقق من عدم نسيان أو خطأ في أحد الحقول!');
+            }
+        });
+
+        function isValidNumberInRange(value) {
+            const number = Number(value);
+            return !isNaN(number) && number >= 0 && number <= 20;
+        }
+    </script>
+{% endblock %}

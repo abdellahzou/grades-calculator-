@@ -1,0 +1,71 @@
+{% extends 'calculator/base.html' %}
+
+{% block title %}Moyenne ElectroniqueL3S2{% endblock %}
+
+{% block content %}
+    <h1>Calculez la moyenne du deuxieme semestre </h1>
+
+    <form method="post" action="#">
+        {% csrf_token %}
+        <div id="input-container"></div>
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        const fieldData = [
+            { label: 'Examen Capteurs et Instrumentation: Coefficient 2:', name: 'exam-captures' },
+            { label: 'TD Capteurs et Instrumentation: Coefficient 2:', name: 'TD-captures' },
+            { label: 'Examen Electronique de puissance: Coefficient 2 :', name: 'exam-electronique' },
+            { label: 'TD Electronique de puissance: Coefficient 2:', name: 'TD-electronique' },
+            { label: 'Examen Asservissements continus et Régulation: Coefficient 3 :', name: 'exam-asservissement' },
+            { label: 'TD Asservissements continus et Régulation: Coefficient 3:', name: 'TD-asservissement' },
+            { label: 'Examen Electronique des impulsions: Coefficient 2:', name: 'exam-impulsions' },
+            { label: 'TD Electronique des impulsions: Coefficient 2:', name: 'TD-impulsions' },
+
+            { label: 'Projet de Fin de Cycle: Coefficient 2:', name: 'exam-projet' },
+            { label: 'TP Asservissements et Régulation: Coefficient 1:', name: 'TP-Asservissements' },
+            { label: 'TP Capteurs et Instrumentation: Coefficient 1:', name: 'TP-Capteurs' },
+            { label: 'TP Electronique de puissance et impulsions: Coefficient 1:', name: 'TP-impulsions' },
+            { label: 'Examen Dispositifs Optoélectroniques: Coefficient 2:', name: 'exam-Dispositifs' },
+            { label: 'Projet professionnel et gestion de entreprise: Coefficient 1:', name: 'exam-professionnel' },
+            // Add more field objects as needed
+        ];
+
+        const inputContainer = document.getElementById('input-container');
+
+        fieldData.forEach(field => {
+            const inputBox = document.createElement('div');
+            inputBox.className = 'input-box';
+
+            const label = document.createElement('label');
+            label.setAttribute('for', field.name);
+            label.textContent = field.label;
+
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.id = field.name;
+            input.name = field.name;
+
+            inputBox.appendChild(label);
+            inputBox.appendChild(input);
+            inputContainer.appendChild(inputBox);
+        });
+
+        const form = document.querySelector('form');
+        form.addEventListener('submit', (event) => {
+            const inputs = Array.from(document.querySelectorAll('.input-box input'));
+            const areAllFieldsValid = inputs.every(input => isValidNumberInRange(input.value));
+            const areAllFieldsFilled = inputs.every(input => input.value.trim() !== '');
+
+            if (!areAllFieldsValid || !areAllFieldsFilled) {
+                event.preventDefault();
+                alert('قم بإدخال جميع الدرجات، تحقق من عدم نسيان أو خطأ في أحد الحقول!');
+            }
+        });
+
+        function isValidNumberInRange(value) {
+            const number = Number(value);
+            return !isNaN(number) && number >= 0 && number <= 20;
+        }
+    </script>
+{% endblock %}

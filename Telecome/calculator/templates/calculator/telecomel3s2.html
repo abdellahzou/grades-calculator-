@@ -1,0 +1,72 @@
+{% extends 'calculator/base.html' %}
+
+{% block title %}Moyenne TelecomeL3S2{% endblock %}
+
+{% block content %}
+    <h1>Calculez la moyenne L3 Telecommunication du deuxieme semestre </h1>
+
+    <form method="post" action="#">
+        {% csrf_token %}
+        <div id="input-container"></div>
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        const fieldData = [
+  { label: 'Examen Communications numériques: Coefficient 3:', name: 'exam-numeriques' },
+  { label: 'TD Communications numériques: Coefficient 3:', name: 'TD-numeriques' },
+  { label: 'Examen Antennes et Lignes de transmissions: Coefficient 2:', name: 'exam-antennes' },
+  { label: 'TD Antennes et Lignes de transmissions: Coefficient 2:', name: 'TD-antennes' },
+  { label: 'Examen Réseaux informatiques locaux: Coefficient 2:', name: 'exam-reseaux' },
+  { label: 'TD Réseaux informatiques locaux: Coefficient 2:', name: 'TD-reseaux' },
+  { label: 'Examen Codage et Théorie de l\'information: Coefficient 2:', name: 'exam-codage' },
+  { label: 'TD Codage et Théorie de l\'information: Coefficient 2:', name: 'TD-codage' },
+  { label: 'Projet de Fin de Cycle: Coefficient 2:', name: 'projet-fin' },
+  { label: 'TP Communications numériques: Coefficient 1:', name: 'TP-numeriques' },
+  { label: 'TP Antennes Lignes de transmissions: Coefficient 1:', name: 'TP-antennes' },
+  { label: 'TP Réseaux informatiques locaux: Coefficient 1:', name: 'TP-reseaux' },
+  { label: 'Examen Optoélectronique: Coefficient 1:', name: 'exam-optoelectronique' },
+  { label: 'Examen Sécurité de l\'information: Coefficient 1:', name: 'exam-securite' },
+  { label: 'Examen Projet professionnel et gestion d\'entreprise: Coefficient 1:', name: 'exam-projetpro' },
+  // Add more field objects as needed
+];
+
+
+        const inputContainer = document.getElementById('input-container');
+
+        fieldData.forEach(field => {
+            const inputBox = document.createElement('div');
+            inputBox.className = 'input-box';
+
+            const label = document.createElement('label');
+            label.setAttribute('for', field.name);
+            label.textContent = field.label;
+
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.id = field.name;
+            input.name = field.name;
+
+            inputBox.appendChild(label);
+            inputBox.appendChild(input);
+            inputContainer.appendChild(inputBox);
+        });
+
+        const form = document.querySelector('form');
+        form.addEventListener('submit', (event) => {
+            const inputs = Array.from(document.querySelectorAll('.input-box input'));
+            const areAllFieldsValid = inputs.every(input => isValidNumberInRange(input.value));
+            const areAllFieldsFilled = inputs.every(input => input.value.trim() !== '');
+
+            if (!areAllFieldsValid || !areAllFieldsFilled) {
+                event.preventDefault();
+                alert('قم بإدخال جميع الدرجات، تحقق من عدم نسيان أو خطأ في أحد الحقول!');
+            }
+        });
+
+        function isValidNumberInRange(value) {
+            const number = Number(value);
+            return !isNaN(number) && number >= 0 && number <= 20;
+        }
+    </script>
+{% endblock %}

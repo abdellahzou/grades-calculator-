@@ -1,0 +1,73 @@
+{% extends 'calculator/base.html' %}
+
+{% block title %}Moyenne TelecomeL3S1{% endblock %}
+
+{% block content %}
+    <h1>Calculez la moyenne L3 Telecommunication du 1er semestre </h1>
+
+    <form method="post" action="#">
+        {% csrf_token %}
+        <div id="input-container"></div>
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        const fieldData = [
+  { label: 'Examen Communications analogiques: Coefficient 3:', name: 'exam-analogiques' },
+  { label: 'TD Communications analogiques: Coefficient 3:', name: 'TD-analogiques' },
+  { label: 'Examen Traitement du signal: Coefficient 2:', name: 'exam-signal' },
+  { label: 'TD Traitement du signal: Coefficient 2:', name: 'TD-signal' },
+  { label: 'Examen Ondes et Propagation: Coefficient 2:', name: 'exam-ondes' },
+  { label: 'TD Ondes et Propagation: Coefficient 2:', name: 'TD-ondes' },
+  { label: 'Examen Systèmes et réseaux de télécommunication: Coefficient 2:', name: 'exam-systemes' },
+  { label: 'TD Systèmes et réseaux de télécommunication: Coefficient 2:', name: 'TD-systemes' },
+  { label: 'Examen Calculateurs et interfaçage: Coefficient 2:', name: 'exam-calculateurs' },
+  { label: 'TP Calculateurs et interfaçage: Coefficient 1:', name: 'TP-calculateurs' },
+  { label: 'TP Ondes et Propagation: Coefficient 1:', name: 'TP-ondes' },
+  { label: 'TP Traitement du signal: Coefficient 1:', name: 'TP-signal' },
+  { label: 'TP Communications analogiques: Coefficient 1:', name: 'TP-analogiques' },
+  { label: 'Examen Téléphonie: Coefficient 1:', name: 'exam-telephonie' },
+  { label: 'Examen Supports de transmission: Coefficient 1:', name: 'exam-transmission' },
+  { label: 'Examen Capteurs et mesures en télécommunications: Coefficient 1:', name: 'exam-capteurs' },
+  // Add more field objects as needed
+];
+
+
+        const inputContainer = document.getElementById('input-container');
+
+        fieldData.forEach(field => {
+            const inputBox = document.createElement('div');
+            inputBox.className = 'input-box';
+
+            const label = document.createElement('label');
+            label.setAttribute('for', field.name);
+            label.textContent = field.label;
+
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.id = field.name;
+            input.name = field.name;
+
+            inputBox.appendChild(label);
+            inputBox.appendChild(input);
+            inputContainer.appendChild(inputBox);
+        });
+
+        const form = document.querySelector('form');
+        form.addEventListener('submit', (event) => {
+            const inputs = Array.from(document.querySelectorAll('.input-box input'));
+            const areAllFieldsValid = inputs.every(input => isValidNumberInRange(input.value));
+            const areAllFieldsFilled = inputs.every(input => input.value.trim() !== '');
+
+            if (!areAllFieldsValid || !areAllFieldsFilled) {
+                event.preventDefault();
+                alert('قم بإدخال جميع الدرجات، تحقق من عدم نسيان أو خطأ في أحد الحقول!');
+            }
+        });
+
+        function isValidNumberInRange(value) {
+            const number = Number(value);
+            return !isNaN(number) && number >= 0 && number <= 20;
+        }
+    </script>
+{% endblock %}
