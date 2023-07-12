@@ -25,6 +25,7 @@ urlpatterns = [
     path('RtelecomeM/', views.RTelecomeM, name='RTelecomeM'),
     path('telecomeM1S1/', views.TelecomeM1S1, name='TelecomeM1S1'),
     path('telecomeM1S2/', views.TelecomeM1S2, name='TelecomeM1S2'),
+    path('RTelecomeM2/', views.RTelecomeM2, name='RTelecomeM2'),
     path('bac/', views.bac_page, name='bac_page'),
     path('bac_ar/', views.bac_page_ar, name='bac_page_ar'),
     path('fr/', views.home_page, name='home_page'),
@@ -80,5 +81,23 @@ urlpatterns = [
     path('electrotechniquel3/', views.electrotechniquel3, name='electrotechniquel3'),
     path('electrotechniquel3s1/', views.electrotechniquel3s1, name='electrotechniquel3s1'),
     path('electrotechniquel3s2/', views.electrotechniquel3s2, name='electrotechniquel3s2'),
+    path('SystemeEmbarquesm/', views.systemeEmbarquesm, name='systemeEmbarquesm'),
+    path('SysEmbarquesm1s1/', views.SysEmbarquesm1s1, name='SysEmbarquesm1s1'),
+    path('SysEmbarquesm1s2/', views.SysEmbarquesm1s2, name='SysEmbarquesm1s2'),
+    path('SysEmbarquesm2s1/', views.SysEmbarquesm2s1, name='SysEmbarquesm2s1'),
+    path('autoinfoindu/', views.autoinfoindu, name='autoinfoindu'),
+    path('autoinfoindum1s1/', views.autoinfoindum1s1, name='autoinfoindum1s1'),
+    path('autoinfoindum1s2/', views.autoinfoindum1s2, name='autoinfoindum1s2'),
+    path('autoinfoindum2s1/', views.autoinfoindum2s1, name='autoinfoindum2s1'),
+    path('machineselectriques/', views.machineselectriques, name='machineselectriques'),
+    path('machineselectriquesm1s1/', views.machineselectriquesm1s1, name='machineselectriquesm1s1'),
+    path('machineselectriquesm1s2/', views.machineselectriquesm1s2, name='machineselectriquesm1s2'),
+    path('machineselectriquesm2s1/', views.machineselectriquesm2s1, name='machineselectriquesm2s1'),
+    path('instrubiomedical/', views.instrubiomedical, name='instrubiomedical'),
+    path('instrubiomedicalm1s1/', views.instrubiomedicalm1s1, name='instrubiomedicalm1s1'),
+    path('instrubiomedicalm1s2/', views.instrubiomedicalm1s2, name='instrubiomedicalm1s2'),
+    path('instrubiomedicalm2s1/', views.instrubiomedicalm2s1, name='instrubiomedicalm2s1'),
 
-]   
+
+
+]  
