@@ -219,6 +219,42 @@ def TelecomeM1S1(request):
 
     return render(request, 'calculator/TelecomeM1S1.html')
 
+def RTelecomeM2(request):
+    if request.method == 'POST':
+        exam_module1 = float(request.POST.get('exam-reseaux'))
+        td_module1 = float(request.POST.get('TD-reseaux'))
+        exam_module2 = float(request.POST.get('exam-cryptographie'))
+        td_module2 = float(request.POST.get('TD-cryptographie'))
+        exam_module3 = float(request.POST.get('exam-video'))
+        td_module3 = float(request.POST.get('TD-video'))
+        exam_module4 = float(request.POST.get('exam-technologies'))
+        td_module4 = float(request.POST.get('TD-technologies'))
+        tp_module1 = float(request.POST.get('TP-reseaux'))
+        tp_module2 = float(request.POST.get('TP-cryptographie'))
+        tp_module3 = float(request.POST.get('TP-technologies'))
+        exam_module5 = float(request.POST.get('exam-television'))
+        td_module5 = float(request.POST.get('TD-television'))
+        exam_module6 = float(request.POST.get('exam-panier1'))
+        exam_module7 = float(request.POST.get('exam-panier2'))
+        exam_module8 = float(request.POST.get('exam-recherche'))
+
+        module1 = (exam_module1 * 0.6 + td_module1 * 0.4) * 3  # Calculation for Réseaux sans fils et réseaux mobiles
+        module2 = (exam_module2 * 0.6 + td_module2 * 0.4) * 2  # Calculation for Cryptographie et Sécurité Réseaux
+        module3 = (exam_module3 * 0.6 + td_module3 * 0.4) * 2  # Calculation for Vidéo et Audio sur IP
+        module4 = (exam_module4 * 0.6 + td_module4 * 0.4) * 2  # Calculation for Technologies du Web
+        module5 = (exam_module5 * 0.6 + td_module5 * 0.4) * 2  # Calculation for Télévision numérique
+        module6 = exam_module6 * 1  # Calculation for Panier au choix
+        module7 = exam_module7 * 1  # Calculation for Panier au choix
+        module8 = exam_module8 * 1  # Calculation for Recherche documentaire et conception de mémoire
+
+        # Perform further calculations based on the retrieved values
+        total = module1 + module2 + module3 + module4 + module5 + module6 + module7 + module8 + tp_module1 + tp_module2 + tp_module3
+        average = total / 17
+        average = round(average, 2)
+
+        return render(request, 'calculator/result_page.html', {'average': average})
+
+    return render(request, 'calculator/RTelecomeM2.html')
 
 
 def bac_page(request):
@@ -642,16 +678,16 @@ def electroniquel3s1(request):
         ele = (exam_systemes * 0.6 + td_systemes * 0.4)*3  # Calculation for ele field
         eleth = (exam_reseaux *0.6 + td_reseaux *0.4) *2 # Calculation for eleth field
          # Calculation for proba field
-        info3 = tp_electronique * 1  # Calculation for info3 field
+          # Calculation for info3 field
         tpele = tp_modelisation * 1  # Calculation for tpele field
         tponde = tp_microprocesseurs * 1  # Calculation for tponde field
         etat = tp_programmation * 1  # Calculation for etat field
-        energie = exam_travaux * 1  # Calculation for energie field
+        energie = (exam_travaux * 0.6 + tp_electronique * 0.4) * 2  # Calculation for energie field
         anglais = exam_technologie * 1  # Calculation for anglais field
         normes = exam_fabrication * 1 
         modelisation  = exam_probagation * 1 
         # Perform further calculations based on the retrieved values
-        total = math3 + onde + ele + eleth  + info3 + tpele + tponde + etat + energie + anglais + normes + modelisation
+        total = math3 + onde + ele + eleth  + tpele + tponde + etat + energie + anglais + normes + modelisation
         average = total / 17
         average = round(average, 2)
 
@@ -765,13 +801,13 @@ def telecomel3s1(request):
         module2 = (exam_module2 * 0.6 + td_module2 * 0.4) * 2  # Calculation for Traitement du signal
         module3 = (exam_module3 * 0.6 + td_module3 * 0.4) * 2  # Calculation for Ondes et Propagation
         module4 = (exam_module4 * 0.6 + td_module4 * 0.4) * 2  # Calculation for Systèmes et réseaux de télécommunication
-        module5 = (exam_module5) * 1  # Calculation for Calculateurs et interfaçage
+        module5 = (exam_module5 * 0.6 + tp_module1 * 0.4) * 2  # Calculation for Calculateurs et interfaçage
         module6 = exam_module6 * 1  # Calculation for Téléphonie
         module7 = exam_module7 * 1  # Calculation for Supports de transmission
         module8 = exam_module8 * 1  # Calculation for Capteurs et mesures en télécommunications
 
         # Perform further calculations based on the retrieved values
-        total = module1 + module2 + module3 + module4 + module5 + module6 + module7 + module8 + tp_module1 + tp_module2 + tp_module3 + tp_module4
+        total = module1 + module2 + module3 + module4 + module5 + module6 + module7 + module8 +  tp_module2 + tp_module3 + tp_module4
         average = total / 17
         average = round(average, 2)
 
@@ -889,13 +925,13 @@ def biomedicall3s1(request):
         module2 = (exam_module2 * 0.6 + td_module2 * 0.4) * 2  # Calculation for Electronique générale
         module3 = (exam_module3 * 0.6 + td_module3 * 0.4) * 2  # Calculation for Traitement du signal
         module4 = (exam_module4 * 0.6 + td_module4 * 0.4) * 2  # Calculation for Biophysique
-        module5 = (exam_module5) * 1  # Calculation for Informatique médicale
+        module5 = (exam_module5 * 0.6 + tp_module3 * 0.4) * 2  # Calculation for Informatique médicale
         module6 = exam_module6 * 1  # Calculation for Ondes et applications en Médical
         module7 = exam_module7 * 1  # Calculation for Terminologie et normes dans le biomédical
         module8 = exam_module8 * 1  # Calculation for Maintenance assistée par ordinateur
 
         # Perform further calculations based on the retrieved values
-        total = module1 + module2 + module3 + module4 + module5 + module6 + module7 + module8 + tp_module1 + tp_module2 + tp_module3 + tp_module4
+        total = module1 + module2 + module3 + module4 + module5 + module6 + module7 + module8 + tp_module1 + tp_module2 + tp_module4
         average = total / 17
         average = round(average, 2)
 
@@ -1012,16 +1048,16 @@ def electrotechniquel3s1(request):
         ele = (exam_systemes * 0.6 + td_systemes * 0.4)*3  # Calculation for ele field
         eleth = (exam_reseaux *0.6 + td_reseaux *0.4) *2 # Calculation for eleth field
          # Calculation for proba field
-        info3 = tp_electronique * 1  # Calculation for info3 field
+          # Calculation for info3 field
         tpele = tp_modelisation * 1  # Calculation for tpele field
         tponde = tp_microprocesseurs * 1  # Calculation for tponde field
         etat = tp_programmation * 1  # Calculation for etat field
-        energie = exam_travaux * 1  # Calculation for energie field
+        energie = ( exam_travaux  * 0.6 + tp_electronique*0.4) * 2  # Calculation for energie field
         anglais = exam_technologie * 1  # Calculation for anglais field
         normes = exam_fabrication * 1 
         modelisation  = exam_probagation * 1 
         # Perform further calculations based on the retrieved values
-        total = math3 + onde + ele + eleth  + info3 + tpele + tponde + etat + energie + anglais + normes + modelisation
+        total = math3 + onde + ele + eleth  + tpele + tponde + etat + energie + anglais + normes + modelisation
         average = total / 17
         average = round(average, 2)
 
@@ -1062,30 +1098,478 @@ def electrotechniquel3s2(request):
 
     return render(request, 'calculator/electrotechniquel3s2.html')
 
+def systemeEmbarquesm(request):
+    return render(request, 'calculator/SystemeEmbarquesm.html')
+
+def SysEmbarquesm1s1(request):
+    if request.method == 'POST':
+        exam_module1 = float(request.POST.get('exam-conception'))
+        td_module1 = float(request.POST.get('TD-conception'))
+        exam_module2 = float(request.POST.get('exam-electronique'))
+        td_module2 = float(request.POST.get('TD-electronique'))
+        exam_module3 = float(request.POST.get('exam-traitement'))
+        td_module3 = float(request.POST.get('TD-traitement'))
+        exam_module4 = float(request.POST.get('exam-systemes'))
+        td_module4 = float(request.POST.get('TD-systemes'))
+        tp_module1 = float(request.POST.get('TP-electronique'))
+        tp_module2 = float(request.POST.get('TP-conception'))
+        tp_module3 = float(request.POST.get('TP-traitement'))
+        exam_module5 = float(request.POST.get('exam-programmation'))
+        td_module5 = float(request.POST.get('TP-programmation'))
+        exam_module6 = float(request.POST.get('exam-choix1'))
+        exam_module7 = float(request.POST.get('exam-choix2'))
+        exam_module8 = float(request.POST.get('exam-angalais'))
+
+        module1 = (exam_module1 * 0.6 + td_module1 * 0.4) * 3  # Calculation for Réseaux sans fils et réseaux mobiles
+        module2 = (exam_module2 * 0.6 + td_module2 * 0.4) * 2  # Calculation for Cryptographie et Sécurité Réseaux
+        module3 = (exam_module3 * 0.6 + td_module3 * 0.4) * 2  # Calculation for Vidéo et Audio sur IP
+        module4 = (exam_module4 * 0.6 + td_module4 * 0.4) * 2  # Calculation for Technologies du Web
+        module5 = (exam_module5 * 0.6 + td_module5 * 0.4) * 2  # Calculation for Télévision numérique
+        module6 = exam_module6 * 1  # Calculation for Panier au choix
+        module7 = exam_module7 * 1  # Calculation for Panier au choix
+        module8 = exam_module8 * 1  # Calculation for Recherche documentaire et conception de mémoire
+
+        # Perform further calculations based on the retrieved values
+        total = module1 + module2 + module3 + module4 + module5 + module6 + module7 + module8 + tp_module1 + tp_module2 + tp_module3
+        average = total / 17
+        average = round(average, 2)
+
+        return render(request, 'calculator/result_page.html', {'average': average})
+
+    return render(request, 'calculator/systemeEmbarquesm1s1.html')
 
 
+def SysEmbarquesm1s2(request):
+    if request.method == 'POST':
+        exam_module1 = float(request.POST.get('exam-dsp'))
+        td_module1 = float(request.POST.get('TD-dsp'))
+        exam_module2 = float(request.POST.get('exam-capteurs'))
+        td_module2 = float(request.POST.get('TD-capteurs'))
+        exam_module3 = float(request.POST.get('exam-microcontroleurs'))
+        td_module3 = float(request.POST.get('TD-microcontroleurs'))
+        exam_module4 = float(request.POST.get('exam-reseaux'))
+        td_module4 = float(request.POST.get('TD-reseaux'))
+        tp_module1 = float(request.POST.get('TP-dsp'))
+        tp_module2 = float(request.POST.get('TP-microcontroleurs'))
+        tp_module3 = float(request.POST.get('TP-capteurs-reseaux'))
+        exam_module5 = float(request.POST.get('exam-etude'))
+        td_module5 = float(request.POST.get('TD-etude'))
+        exam_module6 = float(request.POST.get('exam-matiere1'))
+        exam_module7 = float(request.POST.get('exam-matiere2'))
+        exam_module8 = float(request.POST.get('exam-ethique'))
+
+        module1 = (exam_module1 * 0.6 + td_module1 * 0.4) * 3  # Calculation for Processeurs des signaux numériques (DSP)
+        module2 = (exam_module2 * 0.6 + td_module2 * 0.4) * 2  # Calculation for Capteurs intelligents et MEMS
+        module3 = (exam_module3 * 0.6 + td_module3 * 0.4) * 2  # Calculation for Systèmes à microcontrôleurs
+        module4 = (exam_module4 * 0.6 + td_module4 * 0.4) * 2  # Calculation for Réseaux et communications industriels
+        module5 = (exam_module5 * 0.6 + td_module5 * 0.4) * 2  # Calculation for Etude et Réalisation des projets
+        module6 = exam_module6 * 1  # Calculation for Matière au choix 1
+        module7 = exam_module7 * 1  # Calculation for Matière au choix 2
+        module8 = exam_module8 * 1  # Calculation for Ethique, déontologie et propriété intellectuelle
+
+        # Perform further calculations based on the retrieved values
+        total = module1 + module2 + module3 + module4 + module5 + module6 + module7 + module8 + tp_module1 + tp_module2 + tp_module3
+        average = total / 17
+        average = round(average, 2)
+
+        return render(request, 'calculator/result_page.html', {'average': average})
+
+    return render(request, 'calculator/systemeEmbarquesm1s2.html')
+
+from django.shortcuts import render
+
+from django.shortcuts import render
+
+def SysEmbarquesm2s1(request):
+    if request.method == 'POST':
+        exam_module1 = float(request.POST.get('exam-embarques'))
+        td_module1 = float(request.POST.get('TD-embarques'))
+        exam_module2 = float(request.POST.get('exam-tempsreel'))
+        td_module2 = float(request.POST.get('TD-tempsreel'))
+        exam_module3 = float(request.POST.get('exam-automates'))
+        td_module3 = float(request.POST.get('TD-automates'))
+        exam_module4 = float(request.POST.get('exam-vision'))
+        td_module4 = float(request.POST.get('TD-vision'))
+        tp_module1 = float(request.POST.get('TP-embarques-tempsreel'))
+        tp_module2 = float(request.POST.get('TP-automates'))
+        tp_module3 = float(request.POST.get('TP-vision'))
+        exam_module5 = float(request.POST.get('exam-java'))
+        td_module5 = float(request.POST.get('TD-java'))
+        exam_module6 = float(request.POST.get('exam-matiere5'))
+        exam_module7 = float(request.POST.get('exam-matiere6'))
+        exam_module8 = float(request.POST.get('exam-recherche'))
+
+        module1 = (exam_module1 * 0.6 + td_module1 * 0.4) * 3  # Calculation for Systèmes embarqués
+        module2 = (exam_module2 * 0.6 + td_module2 * 0.4) * 2  # Calculation for Systèmes Temps Réel
+        module3 = (exam_module3 * 0.6 + td_module3 * 0.4) * 2  # Calculation for Automates programmables industriels
+        module4 = (exam_module4 * 0.6 + td_module4 * 0.4) * 2  # Calculation for Vision artificielle
+        module5 = (exam_module5 * 0.6 + td_module5 * 0.4) * 2  # Calculation for Langage JAVA
+        module6 = exam_module6 * 1  # Calculation for Matière au choix 5
+        module7 = exam_module7 * 1  # Calculation for Matière au choix 6
+        module8 = exam_module8 * 1  # Calculation for Recherche documentaire et conception de mémoire
+
+        # Perform further calculations based on the retrieved values
+        total = module1 + module2 + module3 + module4 + module5 + module6 + module7 + module8 + tp_module1 + tp_module2 + tp_module3
+        average = total / 17
+        average = round(average, 2)
+
+        return render(request, 'calculator/result_page.html', {'average': average})
+
+    return render(request, 'calculator/systemeEmbarquesm2s1.html')
+
+def autoinfoindu(request):
+    return render(request, 'calculator/autoinfoindu.html')
 
 
+def autoinfoindum1s1(request):
+    if request.method == 'POST':
+        exam_module1 = float(request.POST.get('exam-systemes'))
+        td_module1 = float(request.POST.get('TD-systemes'))
+        exam_module2 = float(request.POST.get('exam-signal'))
+        td_module2 = float(request.POST.get('TD-signal'))
+        exam_module3 = float(request.POST.get('exam-association'))
+        td_module3 = float(request.POST.get('TD-association'))
+        exam_module4 = float(request.POST.get('exam-optimisation'))
+        td_module4 = float(request.POST.get('TD-optimisation'))
+        exam_module5 = float(request.POST.get('exam-reseaux'))
+        td_module5 = float(request.POST.get('TD-reseaux'))
+        tp_module1 = float(request.POST.get('TP-systemes'))
+        tp_module2 = float(request.POST.get('TP-signal-optimisation'))
+        tp_module3 = float(request.POST.get('TP-association'))
+        exam_module6 = float(request.POST.get('exam-choix1'))
+        exam_module7 = float(request.POST.get('exam-choix2'))
+        exam_module8 = float(request.POST.get('exam-anglais'))
+
+        module1 = (exam_module1 * 0.6 + td_module1 * 0.4) * 3  # Calculation for Systèmes Linéaires Multivariables
+        module2 = (exam_module2 * 0.6 + td_module2 * 0.4) * 2  # Calculation for Traitement du signal
+        module3 = (exam_module3 * 0.6 + td_module3 * 0.4) * 2  # Calculation for Association convertisseurs-machines
+        module4 = (exam_module4 * 0.6 + td_module4 * 0.4) * 2  # Calculation for Optimisation
+        module5 = (exam_module5 * 0.6 + td_module5 * 0.4) * 2  # Calculation for Réseaux et protocoles de communication industrielle
+        module6 = exam_module6 * 1  # Calculation for Panier au choix 1
+        module7 = exam_module7 * 1  # Calculation for Panier au choix 2
+        module8 = exam_module8 * 1  # Calculation for Anglais technique et terminologie
+
+        # Perform further calculations based on the retrieved values
+        total = module1 + module2 + module3 + module4 + module5 + module6 + module7 + module8 + tp_module1 + tp_module2 + tp_module3
+        average = total / 17
+        average = round(average, 2)
+
+        return render(request, 'calculator/result_page.html', {'average': average})
+
+    return render(request, 'calculator/autoinfoindum1s1.html')
 
 
+def autoinfoindum1s2(request):
+    if request.method == 'POST':
+        exam_module1 = float(request.POST.get('exam-non-lineaires'))
+        td_module1 = float(request.POST.get('TD-non-lineaires'))
+        exam_module2 = float(request.POST.get('exam-embarques'))
+        td_module2 = float(request.POST.get('TD-embarques'))
+        exam_module3 = float(request.POST.get('exam-api'))
+        td_module3 = float(request.POST.get('TD-api'))
+        exam_module4 = float(request.POST.get('exam-electronique'))
+        td_module4 = float(request.POST.get('TD-electronique'))
+        exam_module5 = float(request.POST.get('exam-conception'))
+        td_module5 = float(request.POST.get('TD-conception'))
+        tp_module1 = float(request.POST.get('TP-non-lineaires'))
+        tp_module2 = float(request.POST.get('TP-embarques'))
+        tp_module3 = float(request.POST.get('TP-api-electronique'))
+        exam_module6 = float(request.POST.get('exam-choix1'))
+        exam_module7 = float(request.POST.get('exam-choix2'))
+        exam_module8 = float(request.POST.get('exam-ethique'))
+
+        module1 = (exam_module1 * 0.6 + td_module1 * 0.4) * 3  # Calculation for Systèmes non linéaires
+        module2 = (exam_module2 * 0.6 + td_module2 * 0.4) * 2  # Calculation for Systèmes Embarqués et systèmes temps réels
+        module3 = (exam_module3 * 0.6 + td_module3 * 0.4) * 2  # Calculation for Programmation avancée des API
+        module4 = (exam_module4 * 0.6 + td_module4 * 0.4) * 2  # Calculation for Electronique Appliquée
+        module5 = (exam_module5 * 0.6 + td_module5 * 0.4) * 2  # Calculation for Conception orientée objet
+        module6 = exam_module6 * 1  # Calculation for Matiere au choix 1
+        module7 = exam_module7 * 1  # Calculation for Matiere au choix 2
+        module8 = exam_module8 * 1  # Calculation for Ethique, déontologie et propriété intellectuelle
+
+        # Perform further calculations based on the retrieved values
+        total = module1 + module2 + module3 + module4 + module5 + module6 + module7 + module8 + tp_module1 + tp_module2 + tp_module3
+        average = total / 17
+        average = round(average, 2)
+
+        return render(request, 'calculator/result_page.html', {'average': average})
+
+    return render(request, 'calculator/autoinfoindum1s2.html')
 
 
+def autoinfoindum2s1(request):
+    if request.method == 'POST':
+        exam_module1 = float(request.POST.get('exam-commande-avancee'))
+        td_module1 = float(request.POST.get('TD-commande-avancee'))
+        exam_module2 = float(request.POST.get('exam-commande-robots'))
+        td_module2 = float(request.POST.get('TD-commande-robots'))
+        exam_module3 = float(request.POST.get('exam-evenement-discrets'))
+        td_module3 = float(request.POST.get('TD-evenement-discrets'))
+        exam_module4 = float(request.POST.get('exam-fpga'))
+        td_module4 = float(request.POST.get('TD-fpga'))
+        exam_module5 = float(request.POST.get('exam-supervision'))
+        td_module5 = float(request.POST.get('TD-supervision'))
+        tp_module1 = float(request.POST.get('TP-commande-avancee'))
+        tp_module2 = float(request.POST.get('TP-commande-robots'))
+        tp_module3 = float(request.POST.get('TP-fpga'))
+        exam_module6 = float(request.POST.get('exam-choix1'))
+        exam_module7 = float(request.POST.get('exam-choix2'))
+        exam_module8 = float(request.POST.get('exam-recherche-documentaire'))
+
+        module1 = (exam_module1 * 0.6 + td_module1 * 0.4) * 3  # Calculation for Commande avancée
+        module2 = (exam_module2 * 0.6 + td_module2 * 0.4) * 2  # Calculation for Commande de robots de manipulation
+        module3 = (exam_module3 * 0.6 + td_module3 * 0.4) * 2  # Calculation for Systèmes à évènement discrets
+        module4 = (exam_module4 * 0.6 + td_module4 * 0.4) * 2  # Calculation for FPGA et programmation VHDL
+        module5 = (exam_module5 * 0.6 + td_module5 * 0.4) * 2  # Calculation for Supervision industrielle
+        module6 = exam_module6 * 1  # Calculation for Matiere au choix 1
+        module7 = exam_module7 * 1  # Calculation for Matiere au choix 2
+        module8 = exam_module8 * 1  # Calculation for Recherche documentaire et conception de mémoire
+
+        # Perform further calculations based on the retrieved values
+        total = module1 + module2 + module3 + module4 + module5 + module6 + module7 + module8 + tp_module1 + tp_module2 + tp_module3
+        average = total / 17
+        average = round(average, 2)
+
+        return render(request, 'calculator/result_page.html', {'average': average})
+
+    return render(request, 'calculator/autoinfoindum2s1.html')
+
+def machineselectriques(request):
+    return render(request, 'calculator/machineselectriques.html')
+def machineselectriquesm1s1(request):
+    if request.method == 'POST':
+        exam_module1 = float(request.POST.get('exam-reseaux-energie'))
+        td_module1 = float(request.POST.get('TD-reseaux-energie'))
+        exam_module2 = float(request.POST.get('exam-electronique-puissance'))
+        td_module2 = float(request.POST.get('TD-electronique-puissance'))
+        exam_module3 = float(request.POST.get('exam-machines-electriques'))
+        td_module3 = float(request.POST.get('TD-machines-electriques'))
+        exam_module4 = float(request.POST.get('exam-methodes-numeriques'))
+        td_module4 = float(request.POST.get('TD-methodes-numeriques'))
+        tp_module1 = float(request.POST.get('TP-processeurs-controleurs'))
+        tp_module2 = float(request.POST.get('TP-reseaux-energie'))
+        tp_module3 = float(request.POST.get('TP-electronique-puissance'))
+        tp_module4 = float(request.POST.get('TP-methodes-numeriques'))
+        tp_module5 = float(request.POST.get('TP-machines-electriques'))
+        exam_module5 = float(request.POST.get('exam-choix1'))
+        exam_module6 = float(request.POST.get('exam-choix2'))
+        exam_module7 = float(request.POST.get('exam-anglais-technique'))
+        exam_module8 = float(request.POST.get('processeurs-controleurs'))
+        module1 = (exam_module1 * 0.6 + td_module1 * 0.4) * 2  # Calculation for Réseaux de transport et de distribution d'énergie électrique
+        module2 = (exam_module2 * 0.6 + td_module2 * 0.4) * 2  # Calculation for Electronique de puissance avancée
+        module3 = (exam_module3 * 0.6 + td_module3 * 0.4) * 2  # Calculation for Machines électriques approfondies
+        module4 = (exam_module4 * 0.6 + td_module4 * 0.4) * 2  # Calculation for Méthodes numériques appliquées et optimisation
+        module5 = exam_module5 * 1  # Calculation for Matiere au choix 1
+        module6 = exam_module6 * 1  # Calculation for Matiere au choix 2
+        module7 = exam_module7 * 1  # Calculation for Anglais technique et terminologie
+        module8 = exam_module8 * 1  # Calculation for processeurs-controleurs
+        # Perform further calculations based on the retrieved values
+        total = module1 + module2 + module3 + module4 + module5 + module6 + module7 + module8 + tp_module1 + tp_module2 + tp_module3 + tp_module4 + tp_module5
+        average = total / 17
+        average = round(average, 2)
+
+        return render(request, 'calculator/result_page.html', {'average': average})
+
+    return render(request, 'calculator/machineselectriquesm1s1.html')
 
 
+def machineselectriquesm1s2(request):
+    if request.method == 'POST':
+        exam_module1 = float(request.POST.get('exam-modelisation-machines'))
+        td_module1 = float(request.POST.get('TD-modelisation-machines'))
+        exam_module2 = float(request.POST.get('exam-champ-magnetique'))
+        td_module2 = float(request.POST.get('TD-champ-magnetique'))
+        exam_module3 = float(request.POST.get('exam-asservissements'))
+        td_module3 = float(request.POST.get('TD-asservissements'))
+        exam_module4 = float(request.POST.get('exam-construction-machines'))
+        td_module4 = float(request.POST.get('TD-construction-machines'))
+        materiaux_module = float(request.POST.get('materiaux-haute-tension'))
+        tp_module1 = float(request.POST.get('TP-modelisation-machines'))
+        tp_module2 = float(request.POST.get('TP-asservissements'))
+        tp_module3 = float(request.POST.get('TP-champ-magnetique'))
+        exam_module5 = float(request.POST.get('exam-association-machines'))
+        td_module5 = float(request.POST.get('TD-association-machines'))
+        exam_module6 = float(request.POST.get('exam-choix1'))
+        exam_module7 = float(request.POST.get('exam-choix2'))
+        exam_module8 = float(request.POST.get('exam-ethique'))
+
+        module1 = (exam_module1 * 0.6 + td_module1 * 0.4) * 2  # Calculation for Modélisation des machines électriques
+        module2 = (exam_module2 * 0.6 + td_module2 * 0.4) * 2  # Calculation for Champ magnétique dans les machines électriques
+        module3 = (exam_module3 * 0.6 + td_module3 * 0.4) * 2  # Calculation for Asservissements échantillonnés et Régulation numérique
+        module4 = (exam_module4 * 0.6 + td_module4 * 0.4) * 2  # Calculation for Construction des machines électriques
+        module5 = (exam_module5 * 0.6 + td_module5 * 0.4) * 2  # Calculation for Association machines-convertisseurs
+        module6 = exam_module6 * 1  # Calculation for Matiere au choix 1
+        module7 = exam_module7 * 1  # Calculation for Matiere au choix 2
+        module8 = exam_module8 * 1  # Calculation for Ethique, déontologie et propriété intellectuelle
+
+        # Perform further calculations based on the retrieved values
+        total = module1 + module2 + module3 + module4 + module5 + module6 + module7 + module8 + materiaux_module + tp_module1 + tp_module2 + tp_module3
+        average = total / 17
+        average = round(average, 2)
+
+        return render(request, 'calculator/result_page.html', {'average': average})
+
+    return render(request, 'calculator/machineselectriquesm1s2.html')
 
 
+def machineselectriquesm2s1(request):
+    if request.method == 'POST':
+        exam_module1 = float(request.POST.get('exam-machines-speciales'))
+        td_module1 = float(request.POST.get('TD-machines-speciales'))
+        exam_module2 = float(request.POST.get('exam-regimes-transitoires'))
+        td_module2 = float(request.POST.get('TD-regimes-transitoires'))
+        conception_module = float(request.POST.get('conception-assistee'))
+        identification_module = float(request.POST.get('identification-diagnostic'))
+        echauffement_module = float(request.POST.get('echauffement-refroidissement'))
+        exam_module3 = float(request.POST.get('exam-commande'))
+        td_module3 = float(request.POST.get('TD-commande'))
+        tp_module1 = float(request.POST.get('TP-machines-speciales'))
+        tp_module2 = float(request.POST.get('TP-regimes-transitoires'))
+        tp_module3 = float(request.POST.get('TP-identification-diagnostic'))
+        tp_module4 = float(request.POST.get('TP-conception-assistee'))
+        tp_module5 = float(request.POST.get('TP-commande'))
+        exam_module4 = float(request.POST.get('exam-choix1'))
+        exam_module5 = float(request.POST.get('exam-choix2'))
+        exam_module6 = float(request.POST.get('exam-recherche-documentaire'))
+
+        module1 = (exam_module1 * 0.6 + td_module1 * 0.4) * 2  # Calculation for Machines électriques spéciales
+        module2 = (exam_module2 * 0.6 + td_module2 * 0.4) * 2  # Calculation for Régimes transitoires des machines électriques
+        module3 = (exam_module3 * 0.6 + td_module3 * 0.4) * 2  # Calculation for Commande des machines électriques
+        module4 = exam_module4 * 1  # Calculation for Matiere au choix 1
+        module5 = exam_module5 * 1  # Calculation for Matiere au choix 2
+        module6 = exam_module6 * 1  # Calculation for Recherche documentaire et conception de mémoire
+
+        # Perform further calculations based on the retrieved values
+        total = module1 + module2 + module3 + module4 + module5 + module6 + conception_module + identification_module + echauffement_module + tp_module1 + tp_module2 + tp_module3 + tp_module4 + tp_module5
+        average = total / 17
+        average = round(average, 2)
+
+        return render(request, 'calculator/result_page.html', {'average': average})
+
+    return render(request, 'calculator/machineselectriquesm2s1.html')
+
+def instrubiomedical(request):
+    return render(request, 'calculator/instrubiomedicalm.html')
 
 
+def instrubiomedicalm1s1(request):
+    if request.method == 'POST':
+        exam_module1 = float(request.POST.get('exam-radiobiologie'))
+        td_module1 = float(request.POST.get('TD-radiobiologie'))
+        exam_module2 = float(request.POST.get('exam-traitement-signaux'))
+        td_module2 = float(request.POST.get('TD-traitement-signaux'))
+        exam_module3 = float(request.POST.get('exam-fonctions-electronique'))
+        td_module3 = float(request.POST.get('TD-fonctions-electronique'))
+        exam_module4 = float(request.POST.get('exam-circuits-conditionnement'))
+        td_module4 = float(request.POST.get('TD-circuits-conditionnement'))
+        exam_module5 = float(request.POST.get('exam-electronique-puissance'))
+        td_module5 = float(request.POST.get('TD-electronique-puissance'))
+        tp_module1 = float(request.POST.get('TP-fonctions-electronique'))
+        tp_module2 = float(request.POST.get('TP-circuits-electronique'))
+        tp_module3 = float(request.POST.get('TP-traitement-radiobiologie'))
+        exam_module6 = float(request.POST.get('exam-biomateriaux'))
+        td_module6 = float(request.POST.get('TP-biomateriaux'))
+        exam_module7 = float(request.POST.get('exam-choix1'))
+        exam_module8 = float(request.POST.get('exam-choix2'))
+        exam_module9 = float(request.POST.get('exam-anglais-technique'))
+
+        module1 = (exam_module1 * 0.6 + td_module1 * 0.4) * 2  # Calculation for Radiobiologie et radioprotection
+        module2 = (exam_module2 * 0.6 + td_module2 * 0.4) * 2  # Calculation for Traitement avancé des signaux physiologiques
+        module3 = (exam_module3 * 0.6 + td_module3 * 0.4) * 2  # Calculation for Fonctions principales de l'électronique
+        module4 = (exam_module4 * 0.6 + td_module4 * 0.4) * 2  # Calculation for Circuits de conditionnement
+        module5 = exam_module5 * 1  # Calculation for Electronique de puissance
+        module6 = (exam_module6* 0.6 + td_module6 * 0.4) * 2  # Calculation for Technologies des biomatériaux pour prothèses
+        module7 = exam_module7 * 1  # Calculation for Matière au choix 1
+        module8 = exam_module8 * 1  # Calculation for Matière au choix 2
+        module9 = exam_module9 * 1  # Calculation for Anglais technique et terminologie
+
+        # Perform further calculations based on the retrieved values
+        total = module1 + module2 + module3 + module4 + module5 + module6 + module7 + module8 + module9 + tp_module1 + tp_module2 + tp_module3 
+        average = total / 17
+        average = round(average, 2)
+
+        return render(request, 'calculator/result_page.html', {'average': average})
+
+    return render(request, 'calculator/instrubiomedicalm1s1.html')
 
 
+def instrubiomedicalm1s2(request):
+    if request.method == 'POST':
+        exam_module1 = float(request.POST.get('exam-traitement-image-medicale'))
+        td_module1 = float(request.POST.get('TD-traitement-image-medicale'))
+        exam_module2 = float(request.POST.get('exam-dispositifs-speciaux'))
+        td_module2 = float(request.POST.get('TD-dispositifs-speciaux'))
+        exam_module3 = float(request.POST.get('exam-rayonnements'))
+        td_module3 = float(request.POST.get('TD-rayonnements'))
+        exam_module4 = float(request.POST.get('exam-systemes-microcontroleurs'))
+        td_module4 = float(request.POST.get('TD-systemes-microcontroleurs'))
+        tp_module1 = float(request.POST.get('TP-traitement-image-medicale'))
+        tp_module2 = float(request.POST.get('TP-dispositifs-rayonnements'))
+        tp_module3 = float(request.POST.get('TP-systemes-microcontroleurs'))
+        exam_module5 = float(request.POST.get('exam-langage-programmation'))
+        td_module5 = float(request.POST.get('TD-langage-programmation'))
+        exam_module6 = float(request.POST.get('exam-matiere-choix1'))
+        exam_module7 = float(request.POST.get('exam-matiere-choix2'))
+        exam_module8 = float(request.POST.get('exam-ethique-deontologie'))
 
+        module1 = (exam_module1 * 0.6 + td_module1 * 0.4) * 3  # Calculation for Traitement de l’image médicale
+        module2 = (exam_module2 * 0.6 + td_module2 * 0.4) * 2  # Calculation for Dispositifs spéciaux pour l’imagerie médicale
+        module3 = (exam_module3 * 0.6 + td_module3 * 0.4) * 2  # Calculation for Rayonnements non ionisants
+        module4 = (exam_module4 * 0.6 + td_module4 * 0.4) * 2  # Calculation for Systèmes à microcontrôleurs
+        module5 = (exam_module5 * 0.6 + td_module5 * 0.4) * 2  # Calculation for Langage de programmation
+        module6 = exam_module6 * 1  # Calculation for Matière au choix 1
+        module7 = exam_module7 * 1  # Calculation for Matière au choix 2
+        module8 = exam_module8 * 1  # Calculation for Ethique, déontologie et propriété intellectuelle
 
+        # Perform further calculations based on the retrieved values
+        total = module1 + module2 + module3 + module4 + module5 + module6 + module7 + module8 + tp_module1 + tp_module2 + tp_module3
+        average = total / 17
+        average = round(average, 2)
 
+        return render(request, 'calculator/result_page.html', {'average': average})
 
+    return render(request, 'calculator/instrubiomedicalm1s2.html')
 
+from django.shortcuts import render
 
+def instrubiomedicalm2s1(request):
+    if request.method == 'POST':
+        exam_module1 = float(request.POST.get('exam-instrumentation-exploration'))
+        td_module1 = float(request.POST.get('TD-instrumentation-exploration'))
+        exam_module2 = float(request.POST.get('exam-instrumentation-imagerie'))
+        td_module2 = float(request.POST.get('TD-instrumentation-imagerie'))
+        exam_module3 = float(request.POST.get('exam-biocapteurs'))
+        td_module3 = float(request.POST.get('TD-biocapteurs'))
+        exam_module4 = float(request.POST.get('exam-systemes-embarques'))
+        td_module4 = float(request.POST.get('TD-systemes-embarques'))
+        exam_module5 = float(request.POST.get('exam-modelisation-simulation'))
+        tp_module1 = float(request.POST.get('TP-instrumentation-biocapteurs'))
+        tp_module2 = float(request.POST.get('TP-systemes-embarques'))
+        tp_module3 = float(request.POST.get('TP-simulation-systemes'))
+        exam_module6 = float(request.POST.get('exam-gestion-projets'))
+        td_module6 = float(request.POST.get('TD-gestion-projets'))
+        exam_module7 = float(request.POST.get('exam-matiere-choix1'))
+        exam_module8 = float(request.POST.get('exam-matiere-choix2'))
+        exam_module9 = float(request.POST.get('exam-recherche-documentaire'))
 
+        module1 = (exam_module1 * 0.6 + td_module1 * 0.4) * 2  # Calculation for Instrumentation pour l’exploration fonctionnelle
+        module2 = (exam_module2 * 0.6 + td_module2 * 0.4) * 2  # Calculation for Instrumentation de l’imagerie médicale
+        module3 = (exam_module3 * 0.6 + td_module3 * 0.4) * 2  # Calculation for Biocapteurs
+        module4 = (exam_module4 * 0.6 + td_module4 * 0.4) * 2  # Calculation for Systèmes embarqués biomédicaux
+        module5 = exam_module5 * 1  # Calculation for Modélisation et simulation des systèmes biomédicaux
+        module6 = (exam_module6 * 0.6 + td_module6 * 0.4) * 2  # Calculation for Gestion de projets pour les systèmes de santé
+        module7 = exam_module7 * 1  # Calculation for Matière au choix 1
+        module8 = exam_module8 * 1  # Calculation for Matière au choix 2
+        module9 = exam_module9 * 1  # Calculation for Recherche documentaire et conception de mémoire
 
+        # Perform further calculations based on the retrieved values
+        total = module1 + module2 + module3 + module4 + module5 + module6 + module7 + module8 + module9 + tp_module1 + tp_module2 + tp_module3
+        average = total / 17
+        average = round(average, 2)
+
+        return render(request, 'calculator/result_page.html', {'average': average})
+
+    return render(request, 'calculator/instrubiomedicalm2s1.html')
 
 
 
@@ -1119,7 +1603,6 @@ def sitemap_xml(request):
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 <!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-
 
 <url>
   <loc>https://moyennedz.vercel.app/</loc>
