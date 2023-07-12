@@ -1,0 +1,76 @@
+{% extends 'calculator/base.html' %}
+
+{% block title %}Moyenne InstruBiomedicalM1S1{% endblock %}
+
+{% block content %}
+    <h1>Calculez la moyenne M1 Instrumentation Biomedical du 1er semestre </h1>
+
+    <form method="post" action="#">
+        {% csrf_token %}
+        <div id="input-container"></div>
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        const fieldData = [
+  { label: 'Examen Radiobiologie et radioprotection: Coefficient 2:', name: 'exam-radiobiologie' },
+  { label: 'TD Radiobiologie et radioprotection: Coefficient 2:', name: 'TD-radiobiologie' },
+  { label: 'Examen Traitement avancé des signaux physiologiques: Coefficient 2:', name: 'exam-traitement-signaux' },
+  { label: 'TD Traitement avancé des signaux physiologiques: Coefficient 2:', name: 'TD-traitement-signaux' },
+  { label: 'Examen Fonctions principales de l\'électronique: Coefficient 2:', name: 'exam-fonctions-electronique' },
+  { label: 'TD Fonctions principales de l\'électronique: Coefficient 2:', name: 'TD-fonctions-electronique' },
+  { label: 'Examen Circuits de conditionnement: Coefficient 2:', name: 'exam-circuits-conditionnement' },
+  { label: 'TD Circuits de conditionnement: Coefficient 2:', name: 'TD-circuits-conditionnement' },
+  { label: 'Examen Electronique de puissance: Coefficient 1:', name: 'exam-electronique-puissance' },
+  { label: 'TD Electronique de puissance: Coefficient 1:', name: 'TD-electronique-puissance' },
+  { label: 'TP Fonctions de l\'électronique: Coefficient 1:', name: 'TP-fonctions-electronique' },
+  { label: 'TP Circuits de conditionnement/TP Electronique de puissance: Coefficient 1:', name: 'TP-circuits-electronique' },
+  { label: 'TP Traitement avancé des signaux/TP Radiobiologie et radioprotection: Coefficient 1:', name: 'TP-traitement-radiobiologie' },
+  { label: 'Examen Technologies des biomatériaux pour prothèses: Coefficient 2:', name: 'exam-biomateriaux' },
+  { label: 'TP Technologies des biomatériaux pour prothèses: Coefficient 2:', name: 'TP-biomateriaux' },
+  { label: 'Examen Matière au choix: Coefficient 1:', name: 'exam-choix1' },
+  { label: 'Examen Matière au choix: Coefficient 1:', name: 'exam-choix2' },
+  { label: 'Examen Anglais technique et terminologie: Coefficient 1:', name: 'exam-anglais-technique' },
+  // Add more field objects as needed
+];
+
+
+
+        const inputContainer = document.getElementById('input-container');
+
+        fieldData.forEach(field => {
+            const inputBox = document.createElement('div');
+            inputBox.className = 'input-box';
+
+            const label = document.createElement('label');
+            label.setAttribute('for', field.name);
+            label.textContent = field.label;
+
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.id = field.name;
+            input.name = field.name;
+
+            inputBox.appendChild(label);
+            inputBox.appendChild(input);
+            inputContainer.appendChild(inputBox);
+        });
+
+        const form = document.querySelector('form');
+        form.addEventListener('submit', (event) => {
+            const inputs = Array.from(document.querySelectorAll('.input-box input'));
+            const areAllFieldsValid = inputs.every(input => isValidNumberInRange(input.value));
+            const areAllFieldsFilled = inputs.every(input => input.value.trim() !== '');
+
+            if (!areAllFieldsValid || !areAllFieldsFilled) {
+                event.preventDefault();
+                alert('قم بإدخال جميع الدرجات، تحقق من عدم نسيان أو خطأ في أحد الحقول!');
+            }
+        });
+
+        function isValidNumberInRange(value) {
+            const number = Number(value);
+            return !isNaN(number) && number >= 0 && number <= 20;
+        }
+    </script>
+{% endblock %}

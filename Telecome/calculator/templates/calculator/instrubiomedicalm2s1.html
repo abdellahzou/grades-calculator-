@@ -1,0 +1,75 @@
+{% extends 'calculator/base.html' %}
+
+{% block title %}Moyenne InstruBiomedicalM2S1{% endblock %}
+
+{% block content %}
+    <h1>Calculez la moyenne M2 Instrumentation Biomedical du 1er semestre </h1>
+
+    <form method="post" action="#">
+        {% csrf_token %}
+        <div id="input-container"></div>
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        const fieldData = [
+  { label: 'Examen Instrumentation pour l\’exploration fonctionnelle: Coefficient 2:', name: 'exam-instrumentation-exploration' },
+  { label: 'TD Instrumentation pour l\’exploration fonctionnelle: Coefficient 2:', name: 'TD-instrumentation-exploration' },
+  { label: 'Examen Instrumentation de l\’imagerie médicale: Coefficient 2:', name: 'exam-instrumentation-imagerie' },
+  { label: 'TD Instrumentation de l\’imagerie médicale: Coefficient 2:', name: 'TD-instrumentation-imagerie' },
+  { label: 'Examen Biocapteurs: Coefficient 2:', name: 'exam-biocapteurs' },
+  { label: 'TD Biocapteurs: Coefficient 2:', name: 'TD-biocapteurs' },
+  { label: 'Examen Systèmes embarqués biomédicaux: Coefficient 2:', name: 'exam-systemes-embarques' },
+  { label: 'TD Systèmes embarqués biomédicaux: Coefficient 2:', name: 'TD-systemes-embarques' },
+  { label: 'Examen Modélisation et simulation des systèmes biomédicaux: Coefficient 1:', name: 'exam-modelisation-simulation' },
+  { label: 'TP Instrumentation / TP Biocapteurs: Coefficient 1:', name: 'TP-instrumentation-biocapteurs' },
+  { label: 'TP Systèmes embarqués biomédicaux: Coefficient 1:', name: 'TP-systemes-embarques' },
+  { label: 'TP Simulation des systèmes biomédicaux: Coefficient 1:', name: 'TP-simulation-systemes' },
+  { label: 'Examen Gestion de projets pour les systèmes de santé: Coefficient 2:', name: 'exam-gestion-projets' },
+  { label: 'TP Gestion de projets pour les systèmes de santé: Coefficient 2:', name: 'TD-gestion-projets' },
+  { label: 'Examen Matière au choix: Coefficient 1:', name: 'exam-matiere-choix1' },
+  { label: 'Examen Matière au choix: Coefficient 1:', name: 'exam-matiere-choix2' },
+  { label: 'Examen Recherche documentaire et conception de mémoire: Coefficient 1:', name: 'exam-recherche-documentaire' },
+  // Add more field objects as needed
+];
+
+
+
+        const inputContainer = document.getElementById('input-container');
+
+        fieldData.forEach(field => {
+            const inputBox = document.createElement('div');
+            inputBox.className = 'input-box';
+
+            const label = document.createElement('label');
+            label.setAttribute('for', field.name);
+            label.textContent = field.label;
+
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.id = field.name;
+            input.name = field.name;
+
+            inputBox.appendChild(label);
+            inputBox.appendChild(input);
+            inputContainer.appendChild(inputBox);
+        });
+
+        const form = document.querySelector('form');
+        form.addEventListener('submit', (event) => {
+            const inputs = Array.from(document.querySelectorAll('.input-box input'));
+            const areAllFieldsValid = inputs.every(input => isValidNumberInRange(input.value));
+            const areAllFieldsFilled = inputs.every(input => input.value.trim() !== '');
+
+            if (!areAllFieldsValid || !areAllFieldsFilled) {
+                event.preventDefault();
+                alert('قم بإدخال جميع الدرجات، تحقق من عدم نسيان أو خطأ في أحد الحقول!');
+            }
+        });
+
+        function isValidNumberInRange(value) {
+            const number = Number(value);
+            return !isNaN(number) && number >= 0 && number <= 20;
+        }
+    </script>
+{% endblock %}

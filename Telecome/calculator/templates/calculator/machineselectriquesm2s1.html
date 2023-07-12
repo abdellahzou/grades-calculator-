@@ -1,0 +1,76 @@
+{% extends 'calculator/base.html' %}
+
+{% block title %}Moyenne Machines Electriques M2S1{% endblock %}
+
+{% block content %}
+    <h1>Calculez la moyenne M2 Machines Electriques du 1ere semestre </h1>
+
+    <form method="post" action="#">
+        {% csrf_token %}
+        <div id="input-container"></div>
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+       const fieldData = [
+  { label: 'Examen Machines électriques spéciales: Coefficient 2:', name: 'exam-machines-speciales' },
+  { label: 'TD Machines électriques spéciales: Coefficient 2:', name: 'TD-machines-speciales' },
+  { label: 'Examen Régimes transitoires des machines électriques: Coefficient 2:', name: 'exam-regimes-transitoires' },
+  { label: 'TD Régimes transitoires des machines électriques: Coefficient 2:', name: 'TD-regimes-transitoires' },
+  { label: 'Conception assistée par ordinateur des machines électriques: Coefficient 1', name: 'conception-assistee' },
+  { label: 'Identification et diagnostic des machines électriques: Coefficient 1', name: 'identification-diagnostic' },
+  { label: 'Echauffement et refroidissement des actionneurs électromécaniques: Coefficient 1', name: 'echauffement-refroidissement' },
+  { label: 'Examen Commande des machines électriques: Coefficient 2:', name: 'exam-commande' },
+  { label: 'TD Commande des machines électriques: Coefficient 2:', name: 'TD-commande' },
+  { label: 'TP Machines électriques spéciales: Coefficient 1:', name: 'TP-machines-speciales' },
+  { label: 'TP Régimes transitoires des machines électriques: Coefficient 1:', name: 'TP-regimes-transitoires' },
+  { label: 'TP Identification et diagnostic des machines électriques: Coefficient 1:', name: 'TP-identification-diagnostic' },
+  { label: 'TP Conception assistée par ordinateur des machines électriques: Coefficient 1:', name: 'TP-conception-assistee' },
+  { label: 'TP Commande des machines électriques: Coefficient 1:', name: 'TP-commande' },
+  { label: 'Examen Matiere au choix: Coefficient 1:', name: 'exam-choix1' },
+  { label: 'Examen Matiere au choix: Coefficient 1:', name: 'exam-choix2' },
+  { label: 'Examen Recherche documentaire et conception de mémoire: Coefficient 1:', name: 'exam-recherche-documentaire' },
+  // Add more field objects as needed
+];
+
+
+
+
+        const inputContainer = document.getElementById('input-container');
+
+        fieldData.forEach(field => {
+            const inputBox = document.createElement('div');
+            inputBox.className = 'input-box';
+
+            const label = document.createElement('label');
+            label.setAttribute('for', field.name);
+            label.textContent = field.label;
+
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.id = field.name;
+            input.name = field.name;
+
+            inputBox.appendChild(label);
+            inputBox.appendChild(input);
+            inputContainer.appendChild(inputBox);
+        });
+
+        const form = document.querySelector('form');
+        form.addEventListener('submit', (event) => {
+            const inputs = Array.from(document.querySelectorAll('.input-box input'));
+            const areAllFieldsValid = inputs.every(input => isValidNumberInRange(input.value));
+            const areAllFieldsFilled = inputs.every(input => input.value.trim() !== '');
+
+            if (!areAllFieldsValid || !areAllFieldsFilled) {
+                event.preventDefault();
+                alert('قم بإدخال جميع الدرجات، تحقق من عدم نسيان أو خطأ في أحد الحقول!');
+            }
+        });
+
+        function isValidNumberInRange(value) {
+            const number = Number(value);
+            return !isNaN(number) && number >= 0 && number <= 20;
+        }
+    </script>
+{% endblock %}

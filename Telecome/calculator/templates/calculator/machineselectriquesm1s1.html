@@ -1,0 +1,74 @@
+{% extends 'calculator/base.html' %}
+
+{% block title %}Moyenne Machines Electriques M1S1{% endblock %}
+
+{% block content %}
+    <h1>Calculez la moyenne M1 Machines Electriques du 1er semestre </h1>
+
+    <form method="post" action="#">
+        {% csrf_token %}
+        <div id="input-container"></div>
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+       const fieldData = [
+  { label: 'Examen Réseaux de transport et de distribution d\'énergie électrique: Coefficient 2:', name: 'exam-reseaux-energie' },
+  { label: 'TD Réseaux de transport et de distribution d\'énergie électrique: Coefficient 2:', name: 'TD-reseaux-energie' },
+  { label: 'Examen Electronique de puissance avancée: Coefficient 2:', name: 'exam-electronique-puissance' },
+  { label: 'TD Electronique de puissance avancée: Coefficient 2:', name: 'TD-electronique-puissance' },
+  { label: 'µ-processeurs et µ-contrôleurs: Coefficient 1', name: 'processeurs-controleurs' },
+  { label: 'Examen Machines électriques approfondies: Coefficient 2:', name: 'exam-machines-electriques' },
+  { label: 'TD Machines électriques approfondies: Coefficient 2:', name: 'TD-machines-electriques' },
+  { label: 'Examen Méthodes numériques appliquées et optimisation: Coefficient 2:', name: 'exam-methodes-numeriques' },
+  { label: 'TD Méthodes numériques appliquées et optimisation: Coefficient 2:', name: 'TD-methodes-numeriques' },
+  { label: 'TP µ-processeurs et µ-contrôleurs: Coefficient 1:', name: 'TP-processeurs-controleurs' },
+  { label: 'TP Réseaux de transport et de distribution d\'énergie électrique: Coefficient 1:', name: 'TP-reseaux-energie' },
+  { label: 'TP Electronique de puissance avancée: Coefficient 1:', name: 'TP-electronique-puissance' },
+  { label: 'TP Méthodes numériques appliquées et optimisation: Coefficient 1:', name: 'TP-methodes-numeriques' },
+  { label: 'TP machines électriques approfondies: Coefficient 1:', name: 'TP-machines-electriques' },
+  { label: 'Examen Matiere au choix: Coefficient 1:', name: 'exam-choix1' },
+  { label: 'Examen Matiere au choix: Coefficient 1:', name: 'exam-choix2' },
+  { label: 'Examen Anglais technique et terminologie: Coefficient 1:', name: 'exam-anglais-technique' },
+  // Add more field objects as needed
+];
+
+
+        const inputContainer = document.getElementById('input-container');
+
+        fieldData.forEach(field => {
+            const inputBox = document.createElement('div');
+            inputBox.className = 'input-box';
+
+            const label = document.createElement('label');
+            label.setAttribute('for', field.name);
+            label.textContent = field.label;
+
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.id = field.name;
+            input.name = field.name;
+
+            inputBox.appendChild(label);
+            inputBox.appendChild(input);
+            inputContainer.appendChild(inputBox);
+        });
+
+        const form = document.querySelector('form');
+        form.addEventListener('submit', (event) => {
+            const inputs = Array.from(document.querySelectorAll('.input-box input'));
+            const areAllFieldsValid = inputs.every(input => isValidNumberInRange(input.value));
+            const areAllFieldsFilled = inputs.every(input => input.value.trim() !== '');
+
+            if (!areAllFieldsValid || !areAllFieldsFilled) {
+                event.preventDefault();
+                alert('قم بإدخال جميع الدرجات، تحقق من عدم نسيان أو خطأ في أحد الحقول!');
+            }
+        });
+
+        function isValidNumberInRange(value) {
+            const number = Number(value);
+            return !isNaN(number) && number >= 0 && number <= 20;
+        }
+    </script>
+{% endblock %}

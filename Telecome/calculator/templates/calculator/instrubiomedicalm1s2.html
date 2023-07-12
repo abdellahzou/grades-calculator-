@@ -1,0 +1,74 @@
+{% extends 'calculator/base.html' %}
+
+{% block title %}Moyenne InstruBiomedicalM1S2{% endblock %}
+
+{% block content %}
+    <h1>Calculez la moyenne M1 Instrumentation Biomedical du 2eme semestre </h1>
+
+    <form method="post" action="#">
+        {% csrf_token %}
+        <div id="input-container"></div>
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        const fieldData = [
+  { label: 'Examen Traitement de l\’image médicale: Coefficient 3:', name: 'exam-traitement-image-medicale' },
+  { label: 'TD Traitement de l\’image médicale: Coefficient 3:', name: 'TD-traitement-image-medicale' },
+  { label: 'Examen Dispositifs spéciaux pour l\’imagerie médicale: Coefficient 2:', name: 'exam-dispositifs-speciaux' },
+  { label: 'TD Dispositifs spéciaux pour l\’imagerie médicale: Coefficient 2:', name: 'TD-dispositifs-speciaux' },
+  { label: 'Examen Rayonnements non ionisants: Coefficient 2:', name: 'exam-rayonnements' },
+  { label: 'TD Rayonnements non ionisants: Coefficient 2:', name: 'TD-rayonnements' },
+  { label: 'Examen Systèmes à microcontrôleurs: Coefficient 2:', name: 'exam-systemes-microcontroleurs' },
+  { label: 'TD Systèmes à microcontrôleurs: Coefficient 2:', name: 'TD-systemes-microcontroleurs' },
+  { label: 'TP Traitement de l\’image médicale: Coefficient 1:', name: 'TP-traitement-image-medicale' },
+  { label: 'TP Dispositifs spéciaux / TP Rayonnements non ionisants: Coefficient 1:', name: 'TP-dispositifs-rayonnements' },
+  { label: 'TP Systèmes à microcontrôleurs: Coefficient 1:', name: 'TP-systemes-microcontroleurs' },
+  { label: 'Examen Langage de programmation: Coefficient 2:', name: 'exam-langage-programmation' },
+  { label: 'TP Langage de programmation: Coefficient 2:', name: 'TD-langage-programmation' },
+  { label: 'Examen Matière au choix: Coefficient 1:', name: 'exam-matiere-choix1' },
+  { label: 'Examen Matière au choix: Coefficient 1:', name: 'exam-matiere-choix2' },
+  { label: 'Examen Ethique, déontologie et propriété intellectuelle: Coefficient 1:', name: 'exam-ethique-deontologie' },
+  // Add more field objects as needed
+];
+
+
+
+        const inputContainer = document.getElementById('input-container');
+
+        fieldData.forEach(field => {
+            const inputBox = document.createElement('div');
+            inputBox.className = 'input-box';
+
+            const label = document.createElement('label');
+            label.setAttribute('for', field.name);
+            label.textContent = field.label;
+
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.id = field.name;
+            input.name = field.name;
+
+            inputBox.appendChild(label);
+            inputBox.appendChild(input);
+            inputContainer.appendChild(inputBox);
+        });
+
+        const form = document.querySelector('form');
+        form.addEventListener('submit', (event) => {
+            const inputs = Array.from(document.querySelectorAll('.input-box input'));
+            const areAllFieldsValid = inputs.every(input => isValidNumberInRange(input.value));
+            const areAllFieldsFilled = inputs.every(input => input.value.trim() !== '');
+
+            if (!areAllFieldsValid || !areAllFieldsFilled) {
+                event.preventDefault();
+                alert('قم بإدخال جميع الدرجات، تحقق من عدم نسيان أو خطأ في أحد الحقول!');
+            }
+        });
+
+        function isValidNumberInRange(value) {
+            const number = Number(value);
+            return !isNaN(number) && number >= 0 && number <= 20;
+        }
+    </script>
+{% endblock %}

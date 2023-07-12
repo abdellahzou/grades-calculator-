@@ -109,15 +109,15 @@
 </head>
 <body> 
     <div class="container">
-        <h1>Quelle est ta spécialité ?</h1>
+        <h1 class="logo">Quelle est ta spécialité ?</h1>
         <div class="button-container">
-            <a href="{% url 'st1er' %}">Calculez votre Moyenne - L1 Science et Technologie (L1ST)</a>
-            <a href="{% url 'GE' %}">Calculez votre Moyenne - specialtiees de departement de Genie electrique</a>
+            <a href="{% url 'st1er' %}" title="Calculez votre Moyenne - L1 Science et Technologie (L1ST)">Calculez votre Moyenne - L1 Science et Technologie (L1ST)</a>
+            <a href="{% url 'GE' %}" title="Calculez votre Moyenne - specialtiees de departement de Genie electrique">Calculez votre Moyenne - spécialités de département de Génie Électrique</a>
         </div>
 
         <div class="contact-container">
-            <h2 class="contact-title">Contact the Developer</h2>
-            <h3 class="contact-subtitle">Or help me add more specialties</h3>
+            <h2 class="contact-title">Contactez le développeur</h2>
+            <h3 class="contact-subtitle">Ou aidez-moi à ajouter plus de spécialités</h3>
             <div class="contact-details">
                 <p>Facebook: <a href="https://www.facebook.com/AbdellahZouggari">Abdellah Zouggari</a></p>
                 <p>Instagram: <a href="https://www.instagram.com/abdellah_zou/">abdellah_zou</a></p>
@@ -125,5 +125,18 @@
             </div>
         </div>
     </div>
+    
+    <!-- SEO optimized paragraph -->
+    <p style="display: none;">Pour calculer la moyenne de chaque module, nous procédons de la manière suivante :
+    Nous multiplions la note de l'examen par 0,6 et la note du TD par 0,4.
+    Ensuite, nous additionnons les résultats obtenus et multiplions le total par le coefficient du module.
+    De plus, nous multiplions la note du TP par son coefficient.
+    Enfin, nous additionnons toutes les moyennes des modules et les divisons par la somme des coefficients.</p>
+    <p style="display: none;">Pour calculer la moyenne ST, vous devez suivre les étapes suivantes :
+        1. Multipliez la note de l'examen par 0,6 et la note du TD par 0,4.
+        2. Ajoutez les résultats obtenus.
+        3. Multipliez le total par le coefficient du module.
+        4. Répétez les étapes 1 à 3 pour tous les modules.
+        5. Divisez la somme des moyennes des modules par la somme des coefficients.</p>
 </body>
 </html>

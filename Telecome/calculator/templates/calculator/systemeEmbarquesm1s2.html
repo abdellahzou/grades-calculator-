@@ -1,9 +1,9 @@
 {% extends 'calculator/base.html' %}
 
-{% block title %}Moyenne ElectroniqueL3S1{% endblock %}
+{% block title %}Moyenne SysEmbarquesm1s1{% endblock %}
 
 {% block content %}
-    <h1>Calculez la moyenne du premier semestre </h1>
+    <h1>Calculez la moyenne M1 Electronique des Systèmes Embarques du 2eme semestre </h1>
 
     <form method="post" action="#">
         {% csrf_token %}
@@ -13,25 +13,26 @@
 
     <script>
         const fieldData = [
-            { label: 'Examen Electronique de Puissance: Coefficient 2:', name: 'exam-fonctions' },
-            { label: 'TD Electronique de Puissance: Coefficient 2:', name: 'TD-fonctions' },
-            { label: 'Examen Systèmes Asservis: Coefficient 2 :', name: 'exam-traitement' },
-            { label: 'TD Systèmes Asservis: Coefficient 2:', name: 'TD-traitement' },
-            { label: 'Examen Réseaux Electriques: Coefficient 3:', name: 'exam-systemes' },
-            { label: 'TD Réseaux Electriques: Coefficient 3:', name: 'TD-systemes' },
-            { label: 'Examen Théorie du Champ Electromagnétique: Coefficient 2:', name: 'exam-reseaux' },
-            { label: 'TD Théorie du Champ Electromagnétique: Coefficient 2:', name: 'TD-reseaux' },
-            { label: 'TP Schémas et Appareillage électrique: Coefficient 2:', name: 'TP-travaux' },
-            { label: 'TP Réseaux Electriques: Coefficient 1', name: 'TP-systemes' },
-            { label: 'TP Electronique de Puissance: Coefficient 1:', name: 'TP-fonctions' },
-            { label: 'TP Systèmes Asservis/TP capteurs: Coefficient 1:', name: 'TP-signal' },
-            { label: 'Examen Schémas et Appareillage électrique: Coefficient 2:', name: 'exam-travaux' },
-            { label: 'Examen Capteurs et Métrologie: Coefficient 1:', name: 'exam-technologie' },
-            { label: 'Conception des systèmes électriques: Coefficient 1:', name: 'exam-fabrication' },
-            { label: 'Logiciels de simulation: Coefficient 1:', name: 'exam-probagation' },
+  { label: 'Examen Processeurs des signaux numériques (DSP): Coefficient 3:', name: 'exam-dsp' },
+  { label: 'TD Processeurs des signaux numériques (DSP): Coefficient 3:', name: 'TD-dsp' },
+  { label: 'Examen Capteurs intelligents et MEMS: Coefficient 2:', name: 'exam-capteurs' },
+  { label: 'TD Capteurs intelligents et MEMS: Coefficient 2:', name: 'TD-capteurs' },
+  { label: 'Examen Systèmes à microcontrôleurs: Coefficient 2:', name: 'exam-microcontroleurs' },
+  { label: 'TD Systèmes à microcontrôleurs: Coefficient 2:', name: 'TD-microcontroleurs' },
+  { label: 'Examen Réseaux et communications industriels: Coefficient 2:', name: 'exam-reseaux' },
+  { label: 'TD Réseaux et communications industriels: Coefficient 2:', name: 'TD-reseaux' },
+  { label: 'TP Processeurs des signaux numériques: Coefficient 1:', name: 'TP-dsp' },
+  { label: 'TP Systèmes à microcontrôleurs: Coefficient 1:', name: 'TP-microcontroleurs' },
+  { label: 'TP Capteurs intelligents / TP Réseaux industriels: Coefficient 1:', name: 'TP-capteurs-reseaux' },
+  { label: 'Examen Etude et Réalisation des projets: Coefficient 2:', name: 'exam-etude' },
+  { label: 'TP Etude et Réalisation des projets: Coefficient 2:', name: 'TD-etude' },
+  { label: 'Examen Matière au choix 1: Coefficient 1:', name: 'exam-matiere1' },
+  { label: 'Examen Matière au choix 2: Coefficient 1:', name: 'exam-matiere2' },
+  { label: 'Examen Ethique, déontologie et propriété intellectuelle: Coefficient 1:', name: 'exam-ethique' },
+  // Add more field objects as needed
+];
 
-            // Add more field objects as needed
-        ];
+
 
         const inputContainer = document.getElementById('input-container');
 
