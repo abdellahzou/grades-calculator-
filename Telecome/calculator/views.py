@@ -1606,282 +1606,367 @@ def sitemap_xml(request):
 
 <url>
   <loc>https://moyennedz.vercel.app/</loc>
-  <lastmod>2023-07-11T14:56:58+00:00</lastmod>
+  <lastmod>2023-07-12T18:56:43+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
   <loc>https://moyennedz.vercel.app/fr/</loc>
-  <lastmod>2023-07-11T14:56:58+00:00</lastmod>
+  <lastmod>2023-07-12T18:56:43+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://moyennedz.vercel.app/bac_ar/</loc>
-  <lastmod>2023-07-11T14:56:58+00:00</lastmod>
+  <lastmod>2023-07-12T18:56:43+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://moyennedz.vercel.app/universite/</loc>
-  <lastmod>2023-07-11T14:56:58+00:00</lastmod>
+  <lastmod>2023-07-12T18:56:43+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://moyennedz.vercel.app/bac/</loc>
-  <lastmod>2023-07-11T14:56:58+00:00</lastmod>
+  <lastmod>2023-07-12T18:56:43+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://moyennedz.vercel.app/math/</loc>
-  <lastmod>2023-07-11T14:56:58+00:00</lastmod>
+  <lastmod>2023-07-12T18:56:43+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://moyennedz.vercel.app/MathThechnique/</loc>
-  <lastmod>2023-07-11T14:56:58+00:00</lastmod>
+  <lastmod>2023-07-12T18:56:43+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://moyennedz.vercel.app/Gestion/</loc>
-  <lastmod>2023-07-11T14:56:58+00:00</lastmod>
+  <lastmod>2023-07-12T18:56:43+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://moyennedz.vercel.app/science/</loc>
-  <lastmod>2023-07-11T14:56:58+00:00</lastmod>
+  <lastmod>2023-07-12T18:56:43+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://moyennedz.vercel.app/philo/</loc>
-  <lastmod>2023-07-11T14:56:58+00:00</lastmod>
+  <lastmod>2023-07-12T18:56:43+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://moyennedz.vercel.app/LesLangues/</loc>
-  <lastmod>2023-07-11T14:56:58+00:00</lastmod>
+  <lastmod>2023-07-12T18:56:43+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://moyennedz.vercel.app/st/</loc>
-  <lastmod>2023-07-11T14:56:58+00:00</lastmod>
+  <lastmod>2023-07-12T18:56:43+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://moyennedz.vercel.app/RtelecomeM/</loc>
-  <lastmod>2023-07-11T14:56:58+00:00</lastmod>
+  <lastmod>2023-07-12T18:56:43+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://moyennedz.vercel.app/mi/</loc>
-  <lastmod>2023-07-11T14:56:58+00:00</lastmod>
+  <lastmod>2023-07-12T18:56:43+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://moyennedz.vercel.app/droitl1/</loc>
-  <lastmod>2023-07-11T14:56:58+00:00</lastmod>
+  <lastmod>2023-07-12T18:56:43+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://moyennedz.vercel.app/st1er/</loc>
-  <lastmod>2023-07-11T14:56:58+00:00</lastmod>
+  <lastmod>2023-07-12T18:56:43+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>https://moyennedz.vercel.app/ge/</loc>
-  <lastmod>2023-07-11T14:56:58+00:00</lastmod>
+  <lastmod>2023-07-12T18:56:43+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>https://moyennedz.vercel.app/telecomeM1S1/</loc>
-  <lastmod>2023-07-11T14:56:58+00:00</lastmod>
+  <lastmod>2023-07-12T18:56:43+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>https://moyennedz.vercel.app/telecomeM1S2/</loc>
-  <lastmod>2023-07-11T14:56:58+00:00</lastmod>
+  <lastmod>2023-07-12T18:56:43+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>https://moyennedz.vercel.app/mis1/</loc>
-  <lastmod>2023-07-11T14:56:58+00:00</lastmod>
+  <lastmod>2023-07-12T18:56:43+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>https://moyennedz.vercel.app/mis2/</loc>
-  <lastmod>2023-07-11T14:56:58+00:00</lastmod>
+  <lastmod>2023-07-12T18:56:43+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>https://moyennedz.vercel.app/droitl1s1/</loc>
-  <lastmod>2023-07-11T14:56:58+00:00</lastmod>
+  <lastmod>2023-07-12T18:56:43+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>https://moyennedz.vercel.app/droitl1s2/</loc>
-  <lastmod>2023-07-11T14:56:58+00:00</lastmod>
+  <lastmod>2023-07-12T18:56:43+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>https://moyennedz.vercel.app/sts1/</loc>
-  <lastmod>2023-07-11T14:56:58+00:00</lastmod>
+  <lastmod>2023-07-12T18:56:43+00:00</lastmod>
   <priority>0.41</priority>
 </url>
 <url>
   <loc>https://moyennedz.vercel.app/sts2/</loc>
-  <lastmod>2023-07-11T14:56:58+00:00</lastmod>
+  <lastmod>2023-07-12T18:56:43+00:00</lastmod>
   <priority>0.41</priority>
 </url>
 <url>
   <loc>https://moyennedz.vercel.app/telecome/</loc>
-  <lastmod>2023-07-11T14:56:58+00:00</lastmod>
+  <lastmod>2023-07-12T18:56:43+00:00</lastmod>
   <priority>0.41</priority>
 </url>
 <url>
   <loc>https://moyennedz.vercel.app/electronique/</loc>
-  <lastmod>2023-07-11T14:56:58+00:00</lastmod>
+  <lastmod>2023-07-12T18:56:43+00:00</lastmod>
   <priority>0.41</priority>
 </url>
 <url>
   <loc>https://moyennedz.vercel.app/auto/</loc>
-  <lastmod>2023-07-11T14:56:58+00:00</lastmod>
+  <lastmod>2023-07-12T18:56:43+00:00</lastmod>
   <priority>0.41</priority>
 </url>
 <url>
   <loc>https://moyennedz.vercel.app/electrotechnique/</loc>
-  <lastmod>2023-07-11T14:56:58+00:00</lastmod>
+  <lastmod>2023-07-12T18:56:43+00:00</lastmod>
   <priority>0.41</priority>
 </url>
 <url>
   <loc>https://moyennedz.vercel.app/biomedical/</loc>
-  <lastmod>2023-07-11T14:56:58+00:00</lastmod>
+  <lastmod>2023-07-12T18:56:43+00:00</lastmod>
   <priority>0.41</priority>
 </url>
 <url>
   <loc>https://moyennedz.vercel.app/telecomel2/</loc>
-  <lastmod>2023-07-11T14:56:58+00:00</lastmod>
+  <lastmod>2023-07-12T18:56:43+00:00</lastmod>
   <priority>0.33</priority>
 </url>
 <url>
   <loc>https://moyennedz.vercel.app/telecomel3/</loc>
-  <lastmod>2023-07-11T14:56:58+00:00</lastmod>
+  <lastmod>2023-07-12T18:56:43+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://moyennedz.vercel.app/RTelecomeM2/</loc>
+  <lastmod>2023-07-12T18:56:43+00:00</lastmod>
   <priority>0.33</priority>
 </url>
 <url>
   <loc>https://moyennedz.vercel.app/electroniquel2/</loc>
-  <lastmod>2023-07-11T14:56:58+00:00</lastmod>
+  <lastmod>2023-07-12T18:56:43+00:00</lastmod>
   <priority>0.33</priority>
 </url>
 <url>
   <loc>https://moyennedz.vercel.app/electroniquel3/</loc>
-  <lastmod>2023-07-11T14:56:58+00:00</lastmod>
+  <lastmod>2023-07-12T18:56:43+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://moyennedz.vercel.app/SystemeEmbarquesm/</loc>
+  <lastmod>2023-07-12T18:56:43+00:00</lastmod>
   <priority>0.33</priority>
 </url>
 <url>
   <loc>https://moyennedz.vercel.app/autol2</loc>
-  <lastmod>2023-07-11T14:56:58+00:00</lastmod>
+  <lastmod>2023-07-12T18:56:43+00:00</lastmod>
   <priority>0.33</priority>
 </url>
 <url>
   <loc>https://moyennedz.vercel.app/autol3/</loc>
-  <lastmod>2023-07-11T14:56:58+00:00</lastmod>
+  <lastmod>2023-07-12T18:56:43+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://moyennedz.vercel.app/autoinfoindu/</loc>
+  <lastmod>2023-07-12T18:56:43+00:00</lastmod>
   <priority>0.33</priority>
 </url>
 <url>
   <loc>https://moyennedz.vercel.app/electrotechniquel2/</loc>
-  <lastmod>2023-07-11T14:56:58+00:00</lastmod>
+  <lastmod>2023-07-12T18:56:43+00:00</lastmod>
   <priority>0.33</priority>
 </url>
 <url>
   <loc>https://moyennedz.vercel.app/electrotechniquel3/</loc>
-  <lastmod>2023-07-11T14:56:58+00:00</lastmod>
+  <lastmod>2023-07-12T18:56:43+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://moyennedz.vercel.app/machineselectriques/</loc>
+  <lastmod>2023-07-12T18:56:43+00:00</lastmod>
   <priority>0.33</priority>
 </url>
 <url>
   <loc>https://moyennedz.vercel.app/biomedicall2/</loc>
-  <lastmod>2023-07-11T14:56:58+00:00</lastmod>
+  <lastmod>2023-07-12T18:56:43+00:00</lastmod>
   <priority>0.33</priority>
 </url>
 <url>
   <loc>https://moyennedz.vercel.app/biomedicall3/</loc>
-  <lastmod>2023-07-11T14:56:58+00:00</lastmod>
+  <lastmod>2023-07-12T18:56:43+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://moyennedz.vercel.app/instrubiomedical/</loc>
+  <lastmod>2023-07-12T18:56:43+00:00</lastmod>
   <priority>0.33</priority>
 </url>
 <url>
   <loc>https://moyennedz.vercel.app/l2s1/</loc>
-  <lastmod>2023-07-11T14:56:58+00:00</lastmod>
+  <lastmod>2023-07-12T18:56:43+00:00</lastmod>
   <priority>0.26</priority>
 </url>
 <url>
   <loc>https://moyennedz.vercel.app/telecomel2s2/</loc>
-  <lastmod>2023-07-11T14:56:58+00:00</lastmod>
+  <lastmod>2023-07-12T18:56:43+00:00</lastmod>
   <priority>0.26</priority>
 </url>
 <url>
   <loc>https://moyennedz.vercel.app/telecomel3s1/</loc>
-  <lastmod>2023-07-11T14:56:58+00:00</lastmod>
+  <lastmod>2023-07-12T18:56:43+00:00</lastmod>
   <priority>0.26</priority>
 </url>
 <url>
   <loc>https://moyennedz.vercel.app/telecomel3s2/</loc>
-  <lastmod>2023-07-11T14:56:58+00:00</lastmod>
+  <lastmod>2023-07-12T18:56:43+00:00</lastmod>
   <priority>0.26</priority>
 </url>
 <url>
   <loc>https://moyennedz.vercel.app/electroniquel2s2/</loc>
-  <lastmod>2023-07-11T14:56:58+00:00</lastmod>
+  <lastmod>2023-07-12T18:56:43+00:00</lastmod>
   <priority>0.26</priority>
 </url>
 <url>
   <loc>https://moyennedz.vercel.app/electroniquel3s1/</loc>
-  <lastmod>2023-07-11T14:56:58+00:00</lastmod>
+  <lastmod>2023-07-12T18:56:43+00:00</lastmod>
   <priority>0.26</priority>
 </url>
 <url>
   <loc>https://moyennedz.vercel.app/electroniquel3s2/</loc>
-  <lastmod>2023-07-11T14:56:58+00:00</lastmod>
+  <lastmod>2023-07-12T18:56:43+00:00</lastmod>
+  <priority>0.26</priority>
+</url>
+<url>
+  <loc>https://moyennedz.vercel.app/SysEmbarquesm1s1/</loc>
+  <lastmod>2023-07-12T18:56:43+00:00</lastmod>
+  <priority>0.26</priority>
+</url>
+<url>
+  <loc>https://moyennedz.vercel.app/SysEmbarquesm1s2/</loc>
+  <lastmod>2023-07-12T18:56:43+00:00</lastmod>
+  <priority>0.26</priority>
+</url>
+<url>
+  <loc>https://moyennedz.vercel.app/SysEmbarquesm2s1/</loc>
+  <lastmod>2023-07-12T18:56:43+00:00</lastmod>
   <priority>0.26</priority>
 </url>
 <url>
   <loc>https://moyennedz.vercel.app/autol2s2/</loc>
-  <lastmod>2023-07-11T14:56:58+00:00</lastmod>
+  <lastmod>2023-07-12T18:56:43+00:00</lastmod>
   <priority>0.26</priority>
 </url>
 <url>
   <loc>https://moyennedz.vercel.app/autol3s1/</loc>
-  <lastmod>2023-07-11T14:56:58+00:00</lastmod>
+  <lastmod>2023-07-12T18:56:43+00:00</lastmod>
   <priority>0.26</priority>
 </url>
 <url>
   <loc>https://moyennedz.vercel.app/autol3s2/</loc>
-  <lastmod>2023-07-11T14:56:58+00:00</lastmod>
+  <lastmod>2023-07-12T18:56:43+00:00</lastmod>
+  <priority>0.26</priority>
+</url>
+<url>
+  <loc>https://moyennedz.vercel.app/autoinfoindum1s1/</loc>
+  <lastmod>2023-07-12T18:56:43+00:00</lastmod>
+  <priority>0.26</priority>
+</url>
+<url>
+  <loc>https://moyennedz.vercel.app/autoinfoindum1s2/</loc>
+  <lastmod>2023-07-12T18:56:43+00:00</lastmod>
+  <priority>0.26</priority>
+</url>
+<url>
+  <loc>https://moyennedz.vercel.app/autoinfoindum2s1/</loc>
+  <lastmod>2023-07-12T18:56:43+00:00</lastmod>
   <priority>0.26</priority>
 </url>
 <url>
   <loc>https://moyennedz.vercel.app/electrotechniquel2s2/</loc>
-  <lastmod>2023-07-11T14:56:58+00:00</lastmod>
+  <lastmod>2023-07-12T18:56:43+00:00</lastmod>
   <priority>0.26</priority>
 </url>
 <url>
   <loc>https://moyennedz.vercel.app/electrotechniquel3s1/</loc>
-  <lastmod>2023-07-11T14:56:58+00:00</lastmod>
+  <lastmod>2023-07-12T18:56:43+00:00</lastmod>
   <priority>0.26</priority>
 </url>
 <url>
   <loc>https://moyennedz.vercel.app/electrotechniquel3s2/</loc>
-  <lastmod>2023-07-11T14:56:58+00:00</lastmod>
+  <lastmod>2023-07-12T18:56:43+00:00</lastmod>
+  <priority>0.26</priority>
+</url>
+<url>
+  <loc>https://moyennedz.vercel.app/machineselectriquesm1s1/</loc>
+  <lastmod>2023-07-12T18:56:43+00:00</lastmod>
+  <priority>0.26</priority>
+</url>
+<url>
+  <loc>https://moyennedz.vercel.app/machineselectriquesm1s2/</loc>
+  <lastmod>2023-07-12T18:56:43+00:00</lastmod>
+  <priority>0.26</priority>
+</url>
+<url>
+  <loc>https://moyennedz.vercel.app/machineselectriquesm2s1/</loc>
+  <lastmod>2023-07-12T18:56:43+00:00</lastmod>
   <priority>0.26</priority>
 </url>
 <url>
   <loc>https://moyennedz.vercel.app/biomedicall2s2/</loc>
-  <lastmod>2023-07-11T14:56:58+00:00</lastmod>
+  <lastmod>2023-07-12T18:56:43+00:00</lastmod>
   <priority>0.26</priority>
 </url>
 <url>
   <loc>https://moyennedz.vercel.app/biomedicall3s1/</loc>
-  <lastmod>2023-07-11T14:56:58+00:00</lastmod>
+  <lastmod>2023-07-12T18:56:43+00:00</lastmod>
   <priority>0.26</priority>
 </url>
 <url>
   <loc>https://moyennedz.vercel.app/biomedicall3s2/</loc>
-  <lastmod>2023-07-11T14:56:58+00:00</lastmod>
+  <lastmod>2023-07-12T18:56:43+00:00</lastmod>
+  <priority>0.26</priority>
+</url>
+<url>
+  <loc>https://moyennedz.vercel.app/instrubiomedicalm1s1/</loc>
+  <lastmod>2023-07-12T18:56:43+00:00</lastmod>
+  <priority>0.26</priority>
+</url>
+<url>
+  <loc>https://moyennedz.vercel.app/instrubiomedicalm1s2/</loc>
+  <lastmod>2023-07-12T18:56:43+00:00</lastmod>
+  <priority>0.26</priority>
+</url>
+<url>
+  <loc>https://moyennedz.vercel.app/instrubiomedicalm2s1/</loc>
+  <lastmod>2023-07-12T18:56:43+00:00</lastmod>
   <priority>0.26</priority>
 </url>
 
