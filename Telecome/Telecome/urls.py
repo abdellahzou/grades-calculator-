@@ -19,7 +19,7 @@ from django.urls import path
 from calculator import views
 from django.views.generic import TemplateView
 urlpatterns = [
-    path('robots.txt', views.robots_txt, name='robots_txt'),
+    path('robots.txt', TemplateView.as_view(template_name="robots.txt", content_type="text/plain")),
     path('sitemap.xml', views.sitemap_xml, name='sitemap_xml'),
     path('admin/', admin.site.urls),
     path('RtelecomeM/', views.RTelecomeM, name='RTelecomeM'),
