@@ -129,13 +129,31 @@
 <body>
     <div class="container">
         <a href="/" style="position: absolute; top: 10px; right: 10px;">Arabe</a>
-        <h1 class="logo">Bienvenue</h1>
-        <h2 class="subtitle">Calculez votre moyenne de BAC en Algérie</h2>
+        <h1 class="logo">Bienvenue, <br> 
+            Calculez votre moyenne de BAC en Algérie</h1>
+            <p class="seo-paragraph">Bienvenue sur notre plateforme dédiée au calcul de la moyenne du Baccalauréat en Algérie. Nous comprenons l'importance cruciale de votre moyenne scolaire pour votre avenir académique. C'est pourquoi nous mettons à votre disposition un outil de calcul de la moyenne du BAC précis et convivial.
+
+                Que vous soyez un étudiant en terminale préparant votre examen du BAC ou que vous souhaitiez simplement connaître votre moyenne du Baccalauréat antérieur, notre site est là pour vous aider. Il vous suffit d'entrer vos données académiques, et vous obtiendrez instantanément votre moyenne. Notre outil est conçu pour être fiable, facile à utiliser, et il vous donne des résultats précis.
+                
+                Nous nous engageons à vous fournir les meilleurs services pour vous aider à réussir sur le plan académique. Notre calculatrice de moyenne du BAC est l'outil idéal pour prendre des décisions éclairées concernant votre avenir éducatif. N'hésitez pas à l'utiliser dès maintenant pour obtenir votre moyenne du Baccalauréat en Algérie.</p>
+                <div>
+                    <img src="https://img.freepik.com/free-vector/grades-concept-illustration_114360-5958.jpg?w=740&t=st=1695982062~exp=1695982662~hmac=18b0e9cfc2b10614ecef75296d343a265acb5dca6864ec5738fa56dbcfad52ce" height="300" alt="calculatrice de Moyenne de BAC en Algérie">
+                </div>
+                <div class="button-container">
+                    <a href="{% url 'bac_page' %}" title="Calculez votre moyenne de BAC en Algerie">Calculez votre moyenne de BAC ici</a>
+                </div>
         <h2 class="subtitle">Ou calculez votre moyenne de  spécialité universitaire</h2>
+        <p class="seo-paragraph">Ou que vous soyez dans votre parcours universitaire, nous avons la solution pour calculer votre moyenne de spécialité universitaire. Notre plateforme vous offre un outil pratique et précis pour estimer votre performance académique.
+
+            Que vous soyez un étudiant débutant votre cursus universitaire ou que vous souhaitiez simplement évaluer votre moyenne actuelle, nous sommes là pour vous aider. Il vous suffit d'utiliser notre calculatrice de moyenne de spécialité universitaire en toute simplicité.
+            
+            Notre outil est conçu pour vous offrir une expérience utilisateur optimale. Il vous permettra de prendre des décisions éclairées concernant vos études supérieures. La précision de nos calculs vous donnera une idée claire de votre réussite académique.
+            
+            Chez nous, nous nous engageons à vous fournir les meilleurs services pour répondre à vos besoins éducatifs. Utilisez notre outil de calcul de moyenne de spécialité universitaire dès aujourd'hui et bénéficiez d'une évaluation précise de vos performances académiques.</p>
+            <img height="300" src="https://img.freepik.com/free-vector/nerd-concept-illustration_114360-4126.jpg?w=1480&t=st=1695982080~exp=1695982680~hmac=dd1bb59369407f67f4efe9b043c9334b8e9fb3131de51733ceacd9bab9d202ea" alt="calculatrice Moyenne universitaire en ST, MI, SM, BIO, SNV">
 
         <div class="button-container">
-            <a href="{% url 'bac_page' %}" title="Calculez votre moyenne de BAC en Algerie">Moyenne de BAC</a>
-            <a href="{% url 'universite' %}" title="Calculez votre moyenne universitaire, ST, MI, SM, BIO, SNV">Moyenne universitaire</a>
+            <a href="{% url 'universite' %}" title="Calculez votre moyenne universitaire, ST, MI, SM, BIO, SNV">Calculez votre moyenne universitaire ici</a>
         </div>
 
         <div class="feature-container">
@@ -155,8 +173,13 @@
                 <p class="feature-description">Partagez le site avec vos amis afin qu'ils puissent calculer leur moyenne du baccalauréat et leur moyenne de spécialité universitaire.</p>
             </div>
         </div>
+        <div>
+        <p
+class="footer">Made with Love <span class="heart-icon">&#10084;</span> by Abdellah Zouugari &copy; <span id="year"></span>
+<br><a href="https://www.freepik.com/free-vector/grades-concept-illustration_13785140.htm#query=grades&position=0&from_view=search&track=sph">Image 1 by storyset</a> on Freepik
+<br><a href="https://www.freepik.com/free-vector/nerd-concept-illustration_10946465.htm?query=grades">Image 2 by storyset</a> on Freepik</p>
 
-        <p class="footer">Made with Love <span class="heart-icon">&#10084;</span> by Abdellah Zouugari &copy; <span id="year"></span></p>
+    </div>
     </div>
 
     <script>
